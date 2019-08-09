@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="./szablonAplikacji.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="content">
+        <h1>Dodawanie przychodni</h1>
+        <h:form>
+            <h:outputText id="komunikat" />
+            <table>
+                <tr><td>Nazwa</td><td><h:inputText id="nazwa"
+                    value="#{przychodniaBean.przychodnia.nazwa}" required="true"/>
+                    </td></tr>
+                <tr><td>Adres</td><td><h:inputText id="adres"
+                    value="#{przychodniaBean.przychodnia.adres}" required="true"/>
+                    </td></tr>
+                <tr><td>Kontakt</td><td><h:inputText id="kontakt"
+                    value="#{przychodniaBean.przychodnia.kontakt}" required="true"/>
+                    </td></tr>
+                <tr><td>Opis</td><td><h:inputText id="opis"
+                    value="#{przychodniaBean.przychodnia.opis}" required="true"/>
+                    </td></tr>
+                <tr><td></td><td><h:commandButton action="#{przychodniaBean.dodaj}"
+                                                  value="Dodaj" /></td></tr>
+            </table>
+        </h:form>
+      </ui:define>
+</ui:composition>
