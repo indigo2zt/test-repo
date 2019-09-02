@@ -21,4 +21,8 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+<!--    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>pl.lodz.p.sp.java.listeners.PrzychodnieContextListener</listener-class>
+    </listener>-->
 </web-app>

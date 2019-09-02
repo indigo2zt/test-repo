@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./szablonAplikacji.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+                
+
+    <ui:define name="content">
+        <h1>Dodaj wizyte</h1>
+        <h:form>
+            <table>
+                <tr>
+                    <td>Wybierz lekarza</td>
+                    <td>
+                        <h:selectOneMenu id="lekarz"
+                        value="#{wizytaBean.wizyta.wizytaPK.lekarz}"
+                        required="true">
+                            <f:selectItems
+                                value="#{przychodniaBean.przychodnia.lekarzList}"
+                                var="lekarz" itemValue="#{lekarz.id}"
+                                itemLabel="#{lekarz.imie} #{lekarz.nazwisko}" />
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Wybierz pacjenta</td>
+                    <td>
+                        <h:selectOneMenu id="pacjent"
+                         value="#{wizytaBean.wizyta.wizytaPK.pacjent}"
+                         required="true">
+                            <f:selectItems
+                                value="#{przychodniaBean.przychodnia.pacjentList}"
+                                var="pacjent" itemValue="#{pacjent.id}"
+                                itemLabel="#{pacjent.imie}" #{pacjent.nazwisko}" />
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Wpisz date i czas (w formacie RRRR-MM-DD GG:MM:SS):
+                    <td>
+                    <h:inputText value="#{wizytaBean.wizyta.wizytaPK.data}"
+                                 required="true">
+                        <f:convertDateTime timeZone="GMT+1" type="both" />
+                    </h:inputText>
+                    </td>
+                        
+                </tr>
+                <tr>
+                    <td>Wpisz numer pokoju</td>
+                    <td>
+                        <h:inputText value="#{wizytaBean.wizyta.pokój}"
+                                     required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><td><h:commandButton action="#{wizytaBean.dodaj}"
+                                             value="Dodaj"  /></td>
+                </tr>
+                </table>
+        </form>
+        </ui:define>
+</ui:composition>
+                

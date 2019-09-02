@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./szablonAplikacji.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+    <ui:define name="content">
+        <h1>Lista lekarzy</h1>
+        <h:form>
+            <h:dataTable value="#{lekarzBean.lista}" var="lekarz">
+                <h:column>
+                    <f:facet name="header">Edytuj</f:facet>
+                    <h:commandLink value="Edytuj"
+                     action ="#{lekarzBean.zaladujDoEdycji}"
+                     actionListener="#{lekarzBean.lekarzListener}" >
+                        <f:param name="lekarzID" value="#{lekarz.id}" />
+                    
+                    </h:commandLink>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Usun</f:facet>
+                    <h:commandLink value="Usun" action="#{lekarzBean.usun}"
+                    actionListener="#{lekarzBean.lekarzListener}">
+                     <f:param name="lekarzID" value="#{lekarz.id}" />
+                     </h:commandLink>
+                </h:column>
+                <h:column>
+                            <f:facet name="header">Imie</f:facet>
+                            <h:outputText value="#{lekarz.imie}" />
+                </h:column>
+                <h:column>
+                             <f:facet name="header">Nazwisko</f:facet>
+                             <h:outputText value="#{lekarz.nazwisko}"  />
+                </h:column>
+                <h:column>
+                             <f:facet name="header">Specjalizacja</f:facet>
+                             <h:outputText value="#{lekarz.specjalizacja}" />
+                         </h:column>
+                         <h:column>
+                             <f:facet name="header">Przychodnia</f:facet>
+                             <h:outputText value="#{lekarz.przychodnia==null?
+                             'Brak':lekarz.przychodnia.nazwa}"/>
+                             </h:column>
+                          </h:dataTable>
+            </h:form>
+    </ui:define>
+</ui:composition>

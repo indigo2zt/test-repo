@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./szablonAplikacji.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="content">
+        <h1>Lista przychodni</h1>
+        <h:form>
+            <table> <tr><th>Edytuj</th><th>Usun</th><th>Nazwa</th><th>Opis</th><th>Adres</th><th>Kontakt</th></tr>
+                <ui:repeat value="#{przychodniaBean.lista}" var="przychodnia">
+                    <tr>
+                        <td>
+                            <h:commandLink value="Edytuj"
+                                action="#{przychodniaBean.zaladujDoEdycji}"
+                                actionListener="#{przychodniaBean.przychodniaListener}">
+                                   <f:param name="przychodniaID"
+                                    value="#{przychodnia.id}" />
+                            </h:commandLink>
+                        </td>
+                        <td>
+                            <h:commandLink value ="Usun"
+                             action="#{przychodniaBean.usun}"
+                             actionListener="#{przychodniaBean.przychodnialistener}">
+                                <f:param name ="przychodniaID"
+                                         value="#{przychodnia.id}" />
+                            </h:commandLink>
+                        </td>
+                        <td>#{przychodnia.nazwa}</td>
+                        <td>#{przychodnia.opis}</td>
+                        <td>#{przychodnia.adres}</td>
+                        <td>#{przychodnia.kontakt}</td>
+                    </tr>
+                </ui:repeat>
+            </table>
+        </h:form>
+    </ui:define>
+</ui:composition>
+                        
+                        
+                      
