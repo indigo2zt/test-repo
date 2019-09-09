@@ -43,7 +43,6 @@ public class Wizyta implements Serializable {
     @EmbeddedId
     protected WizytaPK wizytaPK;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 5)
     @Column(name = "POKOJ", nullable = false, length = 5)
     private String pokoj;

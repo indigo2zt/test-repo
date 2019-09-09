@@ -43,21 +43,17 @@ public class Pacjent implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID", nullable = false)
     private Integer id;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "IMIE", nullable = false, length = 50)
     private String imie;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "NAZWISKO", nullable = false, length = 50)
     private String nazwisko;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 11)
     @Column(name = "PESEL", nullable = false, length = 11)
     private String pesel;

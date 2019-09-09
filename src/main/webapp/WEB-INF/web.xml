@@ -15,12 +15,25 @@
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            10
         </session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+     <security-role>
+        <description/>
+        <role-name>Admin</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>User</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>Pracownik</role-name>
+    </security-role>
+   
 <!--    <listener>
         <description>ServletContextListener</description>
         <listener-class>pl.lodz.p.sp.java.listeners.PrzychodnieContextListener</listener-class>

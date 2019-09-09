@@ -47,12 +47,10 @@ public class Przychodnia implements Serializable {
     private Integer id;
     
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "NAZWA", nullable = false, length = 100)
     private String nazwa;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 300)
     @Column(name = "OPIS", nullable = false, length = 300)
     private String opis;

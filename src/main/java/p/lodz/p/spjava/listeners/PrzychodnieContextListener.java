@@ -5,9 +5,7 @@
  */
 package p.lodz.p.spjava.listeners;
 
-import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import pl.lodz.p.spjava.config.DBManager;
 
 /**
  *
@@ -15,12 +13,12 @@ import pl.lodz.p.spjava.config.DBManager;
  */
 public class PrzychodnieContextListener  implements ServletContextListener {
     
-    public void contextInitialized(ServletContextEvent sce) {
-        DBManager.getManager().createEntityManagerFactory();
-    }
-   
-    public void contextDestroyed(ServletContextEvent sce) {
-        DBManager.getManager().EntityManagerFactory();
-    }
+//    public void contextInitialized(ServletContextEvent sce) {
+//        DBManager.getManager().createEntityManagerFactory();
 }
+//   
+//    public void contextDestroyed(ServletContextEvent sce) {
+//        DBManager.getManager().EntityManagerFactory();
+//    }
+
 

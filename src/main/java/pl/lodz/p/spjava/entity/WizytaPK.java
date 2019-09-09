@@ -22,15 +22,12 @@ import javax.validation.constraints.NotNull;
 public class WizytaPK implements Serializable {
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "LEKARZ", nullable = false)
     private int lekarz;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "PACJENT", nullable = false)
     private int pacjent;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "DATA", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date data;
