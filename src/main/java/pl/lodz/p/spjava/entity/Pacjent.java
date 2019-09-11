@@ -150,5 +150,21 @@ public class Pacjent implements Serializable {
     public String toString() {
         return "pl.lodz.p.spjava.entity.Pacjent[ id=" + id + " ]";
     }
+
+    public Object getHaslo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setAktywne(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPotwierdzone(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setHaslo(String wyliczSkrotHasla) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

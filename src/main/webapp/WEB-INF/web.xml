@@ -23,15 +23,19 @@
     </welcome-file-list>
      <security-role>
         <description/>
-        <role-name>Admin</role-name>
+        <role-name>Administrator</role-name>
     </security-role>
     <security-role>
         <description/>
-        <role-name>User</role-name>
+        <role-name>Pacjent</role-name>
     </security-role>
     <security-role>
         <description/>
         <role-name>Pracownik</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>Lekarz</role-name>
     </security-role>
    
 <!--    <listener>

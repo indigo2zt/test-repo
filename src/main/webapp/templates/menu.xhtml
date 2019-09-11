@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id="menu">
+        <ul>
+            <li><h:outputLink value="../main/index.xhtml" >${msg["main.page"]}</h:outputLink></li>
+            <li><h:outputLink value="../konto/rejestrujPacjenta.xhtml" >${msg["menu.register"]}</h:outputLink></li>
+            <li>${msg["menu.konto"]}</li>
+            <ul>
+                <li><h:outputLink value="../konto/listaKont.xhtml" >${msg["menu.accounts.list"]}</h:outputLink></li>
+                <li><h:outputLink value="../konto/utworzPacjenta.xhtml" >${msg["menu.accounts.createclient"]}</h:outputLink></li>
+                <li><h:outputLink value="../konto/utworzPracownika.xhtml" >${msg["menu.accounts.createemployee"]}</h:outputLink></li>
+                <li><h:outputLink value="../konto/utworzAdministratora.xhtml" >${msg["menu.accounts.createadmin"]}</h:outputLink></li>
+            </ul>
+            <li>${kontoSession.mojLogin}</li>
+            <ul>
+                <li><h:outputLink value="../konto/zmienMojeHaslo.xhtml" >${msg["menu.accounts.changePassword"]}</h:outputLink></li>
+                <li><h:outputLink value="../konto/szczegolyMojegoKonta.xhtml" >${msg["menu.accounts.details"]}</h:outputLink></li>
+                <li><h:commandLink action="#{kontoSession.resetujSesje()}" value="${msg['menu.closeSession']}" /></li>
+            </ul>
+        </ul>
+    </h:form>
+</ui:composition>
