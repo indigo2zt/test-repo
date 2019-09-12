@@ -17,6 +17,7 @@ import pl.lodz.p.spjava.entity.Administrator;
 import pl.lodz.p.spjava.entity.Konto;
 import pl.lodz.p.spjava.entity.Pacjent;
 import pl.lodz.p.spjava.entity.Pracownik;
+import pl.lodz.p.spjava.exception.AppBaseException;
 import pl.lodz.p.spjava.web.utils.ContextUtils;
 
 /**
@@ -162,15 +163,5 @@ public class KontoSession implements Serializable{
         LOG.severe("Session started: " + ContextUtils.getSessionID());
     }
 
-    String utworzAdministratora(Administrator konto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    String utworzPracownika(UtworzPracownikaPageBean.Pracownik konto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    String utworzPacjenta(Pacjent konto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

@@ -45,27 +45,32 @@ public class Przychodnia implements Serializable {
     @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
     @Basic(optional = false)
     @Size(min = 1, max = 100)
-    @Column(name = "NAZWA", nullable = false, length = 100)
+    @Column(name = "NAZWA")
     private String nazwa;
+
     @Basic(optional = false)
-    @Size(min = 1, max = 300)
-    @Column(name = "OPIS", nullable = false, length = 300)
+    @Size(min = 1, max = 100)
+    @Column(name = "OPIS", length = 100, nullable = false)
     private String opis;
+
     @Size(max = 150)
-    @Column(name = "ADRES", length = 150)
+    @Column(name = "ADRES")
     private String adres;
+
     @Size(max = 30)
-    @Column(name = "KONTAKT", length = 30)
+    @Column(name = "KONTAKT")
     private String kontakt;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Pacjent> pacjentSet;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Lekarz> lekarzList;
+    
     private Set<Pacjent> pacjentList;
-   
 
     public Przychodnia() {
     }
@@ -162,5 +167,5 @@ public class Przychodnia implements Serializable {
     public String toString() {
         return "pl.lodz.p.spjava.entity.Przychodnia[ id=" + id + " ]";
     }
-    
+
 }

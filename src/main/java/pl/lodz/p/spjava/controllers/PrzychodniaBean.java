@@ -1,6 +1,9 @@
 package pl.lodz.p.spjava.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import pl.lodz.p.spjava.entity.Przychodnia;
 import javax.faces.context.FacesContext;
@@ -15,7 +18,17 @@ import pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade;
  */
 @ViewScoped
 @Named("PrzychodniaBean")
-public class PrzychodniaBean implements Serializable{
+public class PrzychodniaBean implements Serializable {
+
+    private List<Przychodnia> przychodnie = new ArrayList<>();
+
+    public List<Przychodnia> getPrzychodnie() {
+        return przychodnie;
+    }
+
+    public void setPrzychodnie(List<Przychodnia> przychodnie) {
+        this.przychodnie = przychodnie;
+    }
 
     private Przychodnia przychodnia = new Przychodnia();
 
@@ -42,6 +55,11 @@ public class PrzychodniaBean implements Serializable{
     public void dodajInformacje(String s) {
         FacesContext.getCurrentInstance().addMessage(null, newFacesMessage(FacesMessage.SEVERITY_INFO, s, ""));
     }
+
+    @PostConstruct
+    public void init() {
+        przychodnie = przychodniaFacade.findAll();
+    }
 //
 //    public List<Przychodnia> getLista() {
 //        EntityManager em = DBManager.getManager().createEntityManager();
@@ -53,7 +71,7 @@ public class PrzychodniaBean implements Serializable{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    }
+}
 //
 //    public void przychodniaListener(ActionEvent ae) {
 //        String ids = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("przychodniaID");
