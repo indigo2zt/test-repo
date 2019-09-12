@@ -5,40 +5,65 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
         <h1>Lista przychodni</h1>
         <h:form>
-            <table> <tr><th>Edytuj</th><th>Usun</th><th>Nazwa</th><th>Opis</th><th>Adres</th><th>Kontakt</th></tr>
-                <ui:repeat value="#{przychodniaBean.lista}" var="przychodnia">
-                    <tr>
-                        <td>
-                            <h:commandLink value="Edytuj"
-                                action="#{przychodniaBean.zaladujDoEdycji}"
-                                actionListener="#{przychodniaBean.przychodniaListener}">
-                                   <f:param name="przychodniaID"
-                                    value="#{przychodnia.id}" />
-                            </h:commandLink>
-                        </td>
-                        <td>
-                            <h:commandLink value ="Usun"
-                             action="#{przychodniaBean.usun}"
-                             actionListener="#{przychodniaBean.przychodnialistener}">
-                                <f:param name ="przychodniaID"
-                                         value="#{przychodnia.id}" />
-                            </h:commandLink>
-                        </td>
-                        <td>#{przychodnia.nazwa}</td>
-                        <td>#{przychodnia.opis}</td>
-                        <td>#{przychodnia.adres}</td>
-                        <td>#{przychodnia.kontakt}</td>
-                    </tr>
-                </ui:repeat>
-            </table>
+            <p:dataTable var="przychodnia" value="#{PrzychodniaBean.przychodnie}" resizableColumns="true" style="margin-bottom:20px">
+                <p:column headerText="Id">
+                    <h:outputText value="#{przychodnia.id}" />
+                </p:column>
+
+                <p:column headerText="Nazwa">
+                    <h:outputText value="#{przychodnia.nazwa}" />
+                </p:column>
+
+                <p:column headerText="Opis">
+                    <h:outputText value="#{przychodnia.opis}" />
+                </p:column>
+
+                <p:column headerText="Adres">
+                    <h:outputText value="#{przychodnia.adres}" />
+                </p:column>
+
+                <p:column headerText="Adres">
+                    <p:commandButton value="TEST" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+        <h:form>
+            <!--            <table> <tr><th>Edytuj</th><th>Usun</th><th>Nazwa</th><th>Opis</th><th>Adres</th><th>Kontakt</th></tr>
+                            <ui:repeat value="#{PrzychodniaBean.lista}" var="przychodnia">
+                                <tr>
+                                    <td>
+                                        <h:commandLink value="Edytuj"
+                                                       action="#{PrzychodniaBean.zaladujDoEdycji}"
+                                                       actionListener="#{przychodniaBean.przychodniaListener}">
+                                            <f:param name="przychodniaID"
+                                                     value="#{przychodnia.id}" />
+                                        </h:commandLink>
+                                    </td>
+                                    <td>
+                                        <h:commandLink value ="Usun"
+                                                       action="#{przychodniaBean.usun}"
+                                                       actionListener="#{przychodniaBean.przychodnialistener}">
+                                            <f:param name ="przychodniaID"
+                                                     value="#{przychodnia.id}" />
+                                        </h:commandLink>
+                                    </td>
+                                    <td>#{przychodnia.nazwa}</td>
+                                    <td>#{przychodnia.opis}</td>
+                                    <td>#{przychodnia.adres}</td>
+                                    <td>#{przychodnia.kontakt}</td>
+                                </tr>
+                            </ui:repeat>
+                        </table>-->
         </h:form>
     </ui:define>
 </ui:composition>
-                        
-                        
-                      
+
+
+
