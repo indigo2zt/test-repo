@@ -32,6 +32,16 @@ public class PrzychodniaBean implements Serializable {
 
     private Przychodnia przychodnia = new Przychodnia();
 
+    private Przychodnia selectPrzychodnia;
+
+    public Przychodnia getSelectPrzychodnia() {
+        return selectPrzychodnia;
+    }
+
+    public void setSelectPrzychodnia(Przychodnia selectPrzychodnia) {
+        this.selectPrzychodnia = selectPrzychodnia;
+    }
+
     @Inject
     private PrzychodniaFacade przychodniaFacade;
 
@@ -48,60 +58,57 @@ public class PrzychodniaBean implements Serializable {
 
     public String dodaj() {
 
+//        this.przychodnia.setNazwa();
+//        this.przychodnia.setOpis();
+//        this.przychodnia.setAdres();
+//        this.przychodnia.setKontakt();
         przychodniaFacade.create(przychodnia);
-        this.przychodnia.setNazwa();
-        this.przychodnia.setOpis();
-        this.przychodnia.setAdres();
-        this.przychodnia.setKontakt();
         return "Dodaj";
     }
-    
-     
-    public void dodajInformacje(String s) {
-        FacesContext.getCurrentInstance().addMessage(null, newFacesMessage(FacesMessage.SEVERITY_INFO, s, ""));
-    }
- 
-      
-  
-    
+
+//    public void dodajInformacje(String s) {
+//        FacesContext.getCurrentInstance().addMessage(null, newFacesMessage(FacesMessage.SEVERITY_INFO, s, ""));
+//    }
     @PostConstruct
     public void init() {
         przychodnie = przychodniaFacade.findAll();
-        
+
     }
-  public String edytujPrzychodnia (Przychodnia przychodnia) {
-      this.przychodniaFacade.edit(przychodnia);
-      this.dodajInformacje("Edytowano przychodnie");
-        return "edytuj";
-      
-  }
+
+    public String edytuj() {
+//        this.przychodniaFacade.edit(selectPrzychodnia);
+//      this.dodajInformacje("Edytowano przychodnie");
+        if (selectPrzychodnia != null) {
+            FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectPrzychodnia", selectPrzychodnia);
+            return "Edytuj";
+        }
+        
+        return "";
+
+    }
 //  public List<Przychodnia> getAllPrzychodnie() {
 //        return this.PrzychodniaFacade.findAll(
 //  public List<Przychodnia>getAllPrzychodnie {
 //    return.this.przychodniaFacade.findAll()
 //}
-    
-    public String usunPrzychodnia (Przychodnia przychodnia) {
+
+    public String usunPrzychodnia(Przychodnia przychodnia) {
         this.przychodniaFacade.remove(przychodnia);
-        this.dodajInformacje("Usunięto przychodnie");
+//        this.dodajInformacje("Usunięto przychodnie");
         return "usun";
-       
+
     }
-    
+
 //ychodnia
 //    public List<Przychodnia> getLista() {
 //        EntityManager em = DBManager.getManager().createEntityManager();
 //        List list = em.createNamedQuery("Przychodnia.findAll").getResultList();
 //        em.close();
 //        return list;
-   
-  
-       
 //   }
-    private FacesMessage newFacesMessage(FacesMessage.Severity SEVERITY_INFO, String s, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+//    private FacesMessage newFacesMessage(FacesMessage.Severity SEVERITY_INFO, String s, String string) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
 //
 //    public void przychodniaListener(ActionEvent ae) {

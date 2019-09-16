@@ -11,7 +11,8 @@
     <ui:define name="content">
         <h1>Lista przychodni</h1>
         <h:form>
-            <p:dataTable var="przychodnia" value="#{PrzychodniaBean.przychodnie}" resizableColumns="false" style="margin-bottom:5px">
+            <p:dataTable var="przychodnia" value="#{PrzychodniaBean.przychodnie}" resizableColumns="false" style="margin-bottom:5px" 
+                         selectionMode="single" selection="#{PrzychodniaBean.selectPrzychodnia}" rowKey="#{przychodnia.id}">
                 <p:column headerText="Id">
                     <h:outputText value="#{przychodnia.id}" />
                 </p:column>
@@ -39,10 +40,10 @@
                 
                 </p:column>-->
                  <p:column headerText="Akcje">
-                     <p:commandButton value="Aktywuj" disabled="#{konto.aktywne}" action="#{przychodniaBean.aktywujKonto}" />
-                    <p:commandButton value="Deaktywuj" disabled="#{konto.aktywne}" action="#{przychodniaBean.deaktywujKonto}" />
-                    <p:commandButton value="Usuń" action="#{przychodniaBean.usun}" />
-                    <p:commandButton value="Edytuj" action="#{przychodniaBean.edytuj}"/>
+                     <p:commandButton value="Aktywuj" disabled="#{konto.aktywne}" action="#{PrzychodniaBean.aktywujKonto}" />
+                    <p:commandButton value="Deaktywuj" disabled="#{konto.aktywne}" action="#{PrzychodniaBean.deaktywujKonto}" />
+                    <p:commandButton value="Usuń" action="#{PrzychodniaBean.usun}" />
+                    <p:commandButton value="Edytuj" action="#{PrzychodniaBean.edytuj}"/>
                  </p:column>
             </p:dataTable>
         </h:form>
