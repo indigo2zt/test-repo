@@ -3,10 +3,28 @@
 <ui:composition  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                  xmlns:h="http://xmlns.jcp.org/jsf/html"
                  template="./szablonAplikacji.xhtml"
-                 xmlns="http://www.w3.org/1999/xhtml">
-                 <ui:define name="content">
-                     <h:form>
-                         <table>
+                 xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:p="http://primefaces.org/ui">
+                 <ui:define name="content">           
+        <h1>Lista przychodni</h1>
+        <h:form>
+        <p:dataTable var="przychodnia" value="#{EdytujKontoPageBeanPrzychodniaBean}" resizableColumns="false" style="margin-bottom:5px">
+                <p:column headerText="Id">
+                    <h:outputText value="#{przychodnia.id}" />
+                </p:column>
+
+                <p:column headerText="Nazwa">
+                    <h:outputText value="#{przychodnia.nazwa}" />
+                </p:column>
+
+                <p:column headerText="Opis">
+                    <h:outputText value="#{przychodnia.opis}" />
+                </p:column>
+
+                <p:column headerText="Adres">
+                    <h:outputText value="#{przychodnia.adres}" />
+                </p:column>
+<!--                         <table>
                              <tr><td>Nazwa</td><td><h:inputText id="nazwa"
                               value="#{przychodniaBean.przychodnia.nazwa}" required="true"
                               /></td></tr>
@@ -21,7 +39,8 @@
                               /></td></tr>
                              <tr><td></td><h:commandButton
                                      action="#{przychodniaBean.edytuj}" value="Edytuj" /></td></tr>
-                         </table>
+                         </table>-->
+                      </p:dataTable>
                       </h:form>
                 </ui:define>
 </ui:composition>

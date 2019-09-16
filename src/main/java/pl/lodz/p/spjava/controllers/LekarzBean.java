@@ -23,6 +23,8 @@ import pl.lodz.p.spjava.entity.Lekarz;
 @Named("LekarzBean")
 
 public class LekarzBean implements Serializable{
+    
+ 
     private Lekarz lekarz = new Lekarz();
     @Inject
     private LekarzFacade lekarzFacade;
@@ -36,6 +38,11 @@ public class LekarzBean implements Serializable{
     public void setLekarz(Lekarz lekarz) {
         this.lekarz = lekarz;
     }
+     public String dodaj() {
+
+        lekarzFacade.create(lekarz);
+        return "Dodaj";
+     }
 //    public String dodaj() {
 //        EntityManager em = (EntityManager) DBManager.getManager().createEntityManagerFactory();
 //                em.getTransaction().begin();

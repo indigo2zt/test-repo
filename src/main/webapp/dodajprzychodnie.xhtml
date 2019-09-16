@@ -3,11 +3,33 @@
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="./szablonAplikacji.xhtml"
-                xmlns="http://www.w3.org/1999/xhtml">
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
         <h1>Dodawanie przychodni</h1>
         <h:form>
+<!--            <p:dataTable var="przychodnia" value="#{PrzychodniaBean.przychodnie}" resizableColumns="false" style="margin-bottom:5px">
+                <p:column headerText="Nazwa">
+                    <h:outputText value="#{przychodnia.nazwa}" />
+                </p:column>
+
+                <p:column headerText="Adres">
+                    <h:outputText value="#{przychodnia.adres}" />
+                </p:column>
+
+                <p:column headerText="Kontakt">
+                    <h:outputText value="#{przychodnia.kontakt}" />
+                </p:column>
+
+                <p:column headerText="Opis">
+                    <h:outputText value="#{przychodnia.opis}" />
+                </p:column>
+                 <p:column headerText="Akcje">
+                     <p:commandButton value="Dodaj" action="#{PrzychodniaBean.dodaj()}"/>
+                 </p:column>
+
+                </p:dataTable>-->
             <h:outputText id="komunikat" />
             <table>
                 <tr><td>Nazwa</td><td><h:inputText id="nazwa"

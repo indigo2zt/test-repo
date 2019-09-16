@@ -11,7 +11,7 @@
     <ui:define name="content">
         <h1>Lista przychodni</h1>
         <h:form>
-            <p:dataTable var="przychodnia" value="#{PrzychodniaBean.przychodnie}" resizableColumns="true" style="margin-bottom:20px">
+            <p:dataTable var="przychodnia" value="#{PrzychodniaBean.przychodnie}" resizableColumns="false" style="margin-bottom:5px">
                 <p:column headerText="Id">
                     <h:outputText value="#{przychodnia.id}" />
                 </p:column>
@@ -20,22 +20,35 @@
                     <h:outputText value="#{przychodnia.nazwa}" />
                 </p:column>
 
-                <p:column headerText="Opis">
-                    <h:outputText value="#{przychodnia.opis}" />
-                </p:column>
-
                 <p:column headerText="Adres">
                     <h:outputText value="#{przychodnia.adres}" />
                 </p:column>
 
-                <p:column headerText="Adres">
-                    <p:commandButton value="TEST" />
+                <p:column headerText="Kontakt">
+                    <h:outputText value="#{przychodnia.kontakt}" />
                 </p:column>
+                
+                <p:column headerText="Opis">
+                    <h:outputText value="#{przychodnia.opis}" />
+                </p:column>
+                
+
+<!--                <p:column headerText="Akcje">
+                    <p:commandButton value="usun"   disabled="#{not przychodnie.aktywne}" />
+                
+                
+                </p:column>-->
+                 <p:column headerText="Akcje">
+                     <p:commandButton value="Aktywuj" disabled="#{konto.aktywne}" action="#{przychodniaBean.aktywujKonto}" />
+                    <p:commandButton value="Deaktywuj" disabled="#{konto.aktywne}" action="#{przychodniaBean.deaktywujKonto}" />
+                    <p:commandButton value="Usuń" action="#{przychodniaBean.usun}" />
+                    <p:commandButton value="Edytuj" action="#{przychodniaBean.edytuj}"/>
+                 </p:column>
             </p:dataTable>
         </h:form>
 
         <h:form>
-            <!--            <table> <tr><th>Edytuj</th><th>Usun</th><th>Nazwa</th><th>Opis</th><th>Adres</th><th>Kontakt</th></tr>
+<!--                        <table> <tr><th>Edytuj</th><th>Usun</th><th>Nazwa</th><th>Opis</th><th>Adres</th><th>Kontakt</th></tr>
                             <ui:repeat value="#{PrzychodniaBean.lista}" var="przychodnia">
                                 <tr>
                                     <td>

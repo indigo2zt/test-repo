@@ -15,7 +15,7 @@ import pl.lodz.p.spjava.web.utils.ContextUtils;
  *
  * @author java
  */
-@Named("utworzKlientaPageBean")
+@Named("utworzPacjentaPageBean")
 @RequestScoped
 public class UtworzPacjentaPageBean {
     

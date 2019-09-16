@@ -4,11 +4,33 @@
                 template="./szablonAplikacji.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns="http://www.w3.org/1999/xhtml">
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui">
     <ui:define name="content">
         <h1>Lista lekarzy</h1>
         <h:form>
-            <h:dataTable value="#{lekarzBean.lista}" var="lekarz">
+            <p:dataTable var="lekarz" value="#{lekarzBean.lista}" resizableColumns="true" style="margin-bottom:20px">
+                <p:column headerText="Id">
+                    <h:outputText value="#{lekarz.id}" />
+                </p:column>
+
+                <p:column headerText="Imie">
+                    <h:outputText value="#{lekarz.imie}" />
+                </p:column>
+
+                <p:column headerText="Nazwisko">
+                    <h:outputText value="#{lekarz.nazwisko}" />
+                </p:column>
+
+                <p:column headerText="Specjalizacja">
+                    <h:outputText value="#{lekarz.specjalizacja}" />
+                </p:column>
+
+                <p:column headerText="Akcje">
+                    <p:commandButton value="AKTYWUJ" />
+                </p:column>
+            </p:dataTable>
+<!--            <h:dataTable value="#{lekarzBean.lista}" var="lekarz">
                 <h:column>
                     <f:facet name="header">Edytuj</f:facet>
                     <h:commandLink value="Edytuj"
@@ -42,7 +64,7 @@
                              <h:outputText value="#{lekarz.przychodnia==null?
                              'Brak':lekarz.przychodnia.nazwa}"/>
                              </h:column>
-                          </h:dataTable>
+                          </h:dataTable>-->
             </h:form>
     </ui:define>
 </ui:composition>

@@ -1,0 +1,406 @@
+@startuml
+abstract class p.lodz.p.spjava.endpoints.AbstractEndpoint
+abstract class pl.lodz.p.spjava.ejb.facade.AbstractFacade
+abstract class pl.lodz.p.spjava.entity.AbstractEntity
+abstract class pl.lodz.p.spjava.exception.AppBaseException
+annotation java.lang.Override
+annotation javax.annotation.PostConstruct
+annotation javax.annotation.Resource
+annotation javax.ejb.ApplicationException
+annotation javax.ejb.LocalBean
+annotation javax.ejb.Stateful
+annotation javax.ejb.Stateless
+annotation javax.ejb.TransactionAttribute
+annotation javax.enterprise.context.RequestScoped
+annotation javax.enterprise.context.SessionScoped
+annotation javax.faces.view.ViewScoped
+annotation javax.inject.Inject
+annotation javax.inject.Named
+annotation javax.interceptor.AroundInvoke
+annotation javax.interceptor.Interceptors
+annotation javax.persistence.Basic
+annotation javax.persistence.Column
+annotation javax.persistence.Embeddable
+annotation javax.persistence.EmbeddedId
+annotation javax.persistence.Entity
+annotation javax.persistence.GeneratedValue
+annotation javax.persistence.Id
+annotation javax.persistence.JoinColumn
+annotation javax.persistence.ManyToOne
+annotation javax.persistence.MappedSuperclass
+annotation javax.persistence.NamedQueries
+annotation javax.persistence.NamedQuery
+annotation javax.persistence.OneToMany
+annotation javax.persistence.PersistenceContext
+annotation javax.persistence.Table
+annotation javax.persistence.Temporal
+annotation javax.persistence.UniqueConstraint
+annotation javax.persistence.Version
+annotation javax.validation.constraints.NotNull
+annotation javax.validation.constraints.Pattern
+annotation javax.validation.constraints.Size
+annotation javax.xml.bind.annotation.XmlTransient
+annotation pl.lodz.p.spjava.entity.Column
+annotation pl.lodz.p.spjava.entity.DiscriminatorColumn
+annotation pl.lodz.p.spjava.entity.DiscriminatorValue
+annotation pl.lodz.p.spjava.entity.Entity
+annotation pl.lodz.p.spjava.entity.GeneratedValue
+annotation pl.lodz.p.spjava.entity.Id
+annotation pl.lodz.p.spjava.entity.Inheritance
+annotation pl.lodz.p.spjava.entity.NamedQueries
+annotation pl.lodz.p.spjava.entity.NamedQuery
+annotation pl.lodz.p.spjava.entity.SecondaryTable
+annotation pl.lodz.p.spjava.entity.Table
+annotation pl.lodz.p.spjava.entity.TableGenerator
+class java.lang.Exception
+class java.security.Principal
+class java.util.ArrayList
+class java.util.Date
+class java.util.List
+class java.util.ResourceBundle
+class java.util.Set
+class java.util.concurrent.ThreadLocalRandom
+class java.util.logging.Level
+class java.util.logging.Logger
+class javax.ejb.EJBException
+class javax.ejb.SessionContext
+class javax.ejb.TransactionAttributeType
+class javax.faces.application.FacesMessage
+class javax.faces.context.ExternalContext
+class javax.faces.context.FacesContext
+class javax.faces.model.DataModel
+class javax.faces.model.ListDataModel
+class javax.interceptor.InvocationContext
+class javax.persistence.CascadeType
+class javax.persistence.EntityManager
+class javax.persistence.FetchType
+class javax.persistence.GenerationType
+class javax.persistence.TemporalType
+class javax.persistence.TypedQuery
+class javax.servlet.http.HttpSession
+class javax.xml.bind.annotation.XmlRootElement
+class p.lodz.p.spjava.endpoints.KontoEndpoint
+class p.lodz.p.spjava.listeners.PrzychodnieContextListener
+class p.lodz.p.spjava.web.konto.EdytujKontoPageBean
+class p.lodz.p.spjava.web.konto.KontoSession
+class p.lodz.p.spjava.web.konto.ListaKontPageBean
+class p.lodz.p.spjava.web.konto.UtworzAdministratoraPageBean
+class p.lodz.p.spjava.web.konto.UtworzPacjentaPageBean
+class p.lodz.p.spjava.web.konto.UtworzPracownikaPageBean
+class pl.lodz.p.spjava.config.PrzychodniaConverter
+class pl.lodz.p.spjava.controllers.LekarzBean
+class pl.lodz.p.spjava.controllers.PacjentBean
+class pl.lodz.p.spjava.controllers.PrzychodniaBean
+class pl.lodz.p.spjava.controllers.WizytaBean
+class pl.lodz.p.spjava.ejb.facade.AdministratorFacade
+class pl.lodz.p.spjava.ejb.facade.KontoFacade
+class pl.lodz.p.spjava.ejb.facade.LekarzFacade
+class pl.lodz.p.spjava.ejb.facade.PacjentFacade
+class pl.lodz.p.spjava.ejb.facade.PracownikFacade
+class pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade
+class pl.lodz.p.spjava.ejb.facade.WizytaFacade
+class pl.lodz.p.spjava.ejb.intereceptor.LoggingInterceptor
+class pl.lodz.p.spjava.entity.Administrator
+class pl.lodz.p.spjava.entity.Konto
+class pl.lodz.p.spjava.entity.Lekarz
+class pl.lodz.p.spjava.entity.Pacjent
+class pl.lodz.p.spjava.entity.Pracownik
+class pl.lodz.p.spjava.entity.Przychodnia
+class pl.lodz.p.spjava.entity.Wizyta
+class pl.lodz.p.spjava.entity.WizytaPK
+class pl.lodz.p.spjava.web.utils.ContextUtils
+class pl.lodz.p.spjava.web.utils.KontoUtils
+interface java.io.Serializable
+interface javax.ejb.SessionSynchronization
+interface javax.servlet.ServletContextListener
+p.lodz.p.spjava.endpoints.AbstractEndpoint ..> javax.annotation.Resource
+p.lodz.p.spjava.endpoints.AbstractEndpoint ..> java.util.concurrent.ThreadLocalRandom
+p.lodz.p.spjava.endpoints.AbstractEndpoint ..> java.util.logging.Level
+p.lodz.p.spjava.endpoints.AbstractEndpoint ..> java.util.logging.Logger
+p.lodz.p.spjava.endpoints.AbstractEndpoint ..> javax.ejb.EJBException
+p.lodz.p.spjava.endpoints.AbstractEndpoint ..> javax.ejb.SessionContext
+pl.lodz.p.spjava.ejb.facade.AbstractFacade ..> java.util.List
+pl.lodz.p.spjava.ejb.facade.AbstractFacade ..> javax.persistence.EntityManager
+pl.lodz.p.spjava.entity.AbstractEntity ..> java.lang.Override
+pl.lodz.p.spjava.entity.AbstractEntity ..> javax.persistence.Column
+pl.lodz.p.spjava.entity.AbstractEntity ..> javax.persistence.MappedSuperclass
+pl.lodz.p.spjava.entity.AbstractEntity ..> javax.persistence.Version
+pl.lodz.p.spjava.exception.AppBaseException ..> javax.ejb.ApplicationException
+pl.lodz.p.spjava.exception.AppBaseException --|> java.lang.Exception
+p.lodz.p.spjava.endpoints.KontoEndpoint --|> p.lodz.p.spjava.endpoints.AbstractEndpoint
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> pl.lodz.p.spjava.exception.AppBaseException
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> javax.ejb.LocalBean
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> javax.ejb.Stateful
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> javax.ejb.TransactionAttribute
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> javax.inject.Inject
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> javax.interceptor.Interceptors
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> java.util.List
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> javax.ejb.TransactionAttributeType
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> pl.lodz.p.spjava.ejb.facade.AdministratorFacade
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> pl.lodz.p.spjava.ejb.facade.KontoFacade
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> pl.lodz.p.spjava.ejb.facade.PacjentFacade
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> pl.lodz.p.spjava.ejb.facade.PracownikFacade
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> pl.lodz.p.spjava.ejb.intereceptor.LoggingInterceptor
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> pl.lodz.p.spjava.entity.Konto
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> pl.lodz.p.spjava.entity.Pacjent
+p.lodz.p.spjava.endpoints.KontoEndpoint ..> pl.lodz.p.spjava.web.utils.KontoUtils
+p.lodz.p.spjava.endpoints.KontoEndpoint --|> javax.ejb.SessionSynchronization
+p.lodz.p.spjava.listeners.PrzychodnieContextListener --|> javax.servlet.ServletContextListener
+p.lodz.p.spjava.web.konto.EdytujKontoPageBean ..> pl.lodz.p.spjava.exception.AppBaseException
+p.lodz.p.spjava.web.konto.EdytujKontoPageBean ..> javax.annotation.PostConstruct
+p.lodz.p.spjava.web.konto.EdytujKontoPageBean ..> javax.enterprise.context.RequestScoped
+p.lodz.p.spjava.web.konto.EdytujKontoPageBean ..> javax.inject.Inject
+p.lodz.p.spjava.web.konto.EdytujKontoPageBean ..> javax.inject.Named
+p.lodz.p.spjava.web.konto.EdytujKontoPageBean ..> pl.lodz.p.spjava.entity.Konto
+p.lodz.p.spjava.web.konto.EdytujKontoPageBean ..> pl.lodz.p.spjava.web.utils.KontoUtils
+p.lodz.p.spjava.web.konto.KontoSession ..> pl.lodz.p.spjava.exception.AppBaseException
+p.lodz.p.spjava.web.konto.KontoSession ..> javax.annotation.PostConstruct
+p.lodz.p.spjava.web.konto.KontoSession ..> javax.enterprise.context.SessionScoped
+p.lodz.p.spjava.web.konto.KontoSession ..> javax.inject.Inject
+p.lodz.p.spjava.web.konto.KontoSession ..> javax.inject.Named
+p.lodz.p.spjava.web.konto.KontoSession ..> java.util.List
+p.lodz.p.spjava.web.konto.KontoSession ..> java.util.logging.Logger
+p.lodz.p.spjava.web.konto.KontoSession ..> p.lodz.p.spjava.endpoints.KontoEndpoint
+p.lodz.p.spjava.web.konto.KontoSession ..> pl.lodz.p.spjava.entity.Administrator
+p.lodz.p.spjava.web.konto.KontoSession ..> pl.lodz.p.spjava.entity.Konto
+p.lodz.p.spjava.web.konto.KontoSession ..> pl.lodz.p.spjava.entity.Pacjent
+p.lodz.p.spjava.web.konto.KontoSession ..> pl.lodz.p.spjava.entity.Pracownik
+p.lodz.p.spjava.web.konto.KontoSession ..> pl.lodz.p.spjava.web.utils.ContextUtils
+p.lodz.p.spjava.web.konto.KontoSession --|> java.io.Serializable
+p.lodz.p.spjava.web.konto.ListaKontPageBean ..> javax.annotation.PostConstruct
+p.lodz.p.spjava.web.konto.ListaKontPageBean ..> javax.enterprise.context.RequestScoped
+p.lodz.p.spjava.web.konto.ListaKontPageBean ..> javax.inject.Inject
+p.lodz.p.spjava.web.konto.ListaKontPageBean ..> javax.inject.Named
+p.lodz.p.spjava.web.konto.ListaKontPageBean ..> java.util.List
+p.lodz.p.spjava.web.konto.ListaKontPageBean ..> javax.faces.model.DataModel
+p.lodz.p.spjava.web.konto.ListaKontPageBean ..> javax.faces.model.ListDataModel
+p.lodz.p.spjava.web.konto.ListaKontPageBean ..> pl.lodz.p.spjava.entity.Konto
+p.lodz.p.spjava.web.konto.UtworzAdministratoraPageBean ..> javax.enterprise.context.RequestScoped
+p.lodz.p.spjava.web.konto.UtworzAdministratoraPageBean ..> javax.inject.Inject
+p.lodz.p.spjava.web.konto.UtworzAdministratoraPageBean ..> javax.inject.Named
+p.lodz.p.spjava.web.konto.UtworzAdministratoraPageBean ..> pl.lodz.p.spjava.entity.Administrator
+p.lodz.p.spjava.web.konto.UtworzAdministratoraPageBean ..> pl.lodz.p.spjava.web.utils.ContextUtils
+p.lodz.p.spjava.web.konto.UtworzPacjentaPageBean ..> javax.enterprise.context.RequestScoped
+p.lodz.p.spjava.web.konto.UtworzPacjentaPageBean ..> javax.inject.Inject
+p.lodz.p.spjava.web.konto.UtworzPacjentaPageBean ..> javax.inject.Named
+p.lodz.p.spjava.web.konto.UtworzPacjentaPageBean ..> pl.lodz.p.spjava.entity.Pacjent
+p.lodz.p.spjava.web.konto.UtworzPacjentaPageBean ..> pl.lodz.p.spjava.web.utils.ContextUtils
+p.lodz.p.spjava.web.konto.UtworzPracownikaPageBean ..> javax.enterprise.context.RequestScoped
+p.lodz.p.spjava.web.konto.UtworzPracownikaPageBean ..> javax.inject.Inject
+p.lodz.p.spjava.web.konto.UtworzPracownikaPageBean ..> javax.inject.Named
+p.lodz.p.spjava.web.konto.UtworzPracownikaPageBean ..> pl.lodz.p.spjava.entity.Pracownik
+p.lodz.p.spjava.web.konto.UtworzPracownikaPageBean ..> pl.lodz.p.spjava.web.utils.ContextUtils
+pl.lodz.p.spjava.controllers.LekarzBean ..> javax.enterprise.context.RequestScoped
+pl.lodz.p.spjava.controllers.LekarzBean ..> javax.inject.Inject
+pl.lodz.p.spjava.controllers.LekarzBean ..> javax.inject.Named
+pl.lodz.p.spjava.controllers.LekarzBean ..> javax.faces.application.FacesMessage
+pl.lodz.p.spjava.controllers.LekarzBean ..> javax.faces.context.FacesContext
+pl.lodz.p.spjava.controllers.LekarzBean ..> javax.persistence.EntityManager
+pl.lodz.p.spjava.controllers.LekarzBean ..> pl.lodz.p.spjava.ejb.facade.LekarzFacade
+pl.lodz.p.spjava.controllers.LekarzBean ..> pl.lodz.p.spjava.entity.Lekarz
+pl.lodz.p.spjava.controllers.LekarzBean --|> java.io.Serializable
+pl.lodz.p.spjava.controllers.PacjentBean ..> javax.enterprise.context.RequestScoped
+pl.lodz.p.spjava.controllers.PacjentBean ..> javax.inject.Inject
+pl.lodz.p.spjava.controllers.PacjentBean ..> javax.inject.Named
+pl.lodz.p.spjava.controllers.PacjentBean ..> javax.faces.application.FacesMessage
+pl.lodz.p.spjava.controllers.PacjentBean ..> javax.faces.context.FacesContext
+pl.lodz.p.spjava.controllers.PacjentBean ..> pl.lodz.p.spjava.ejb.facade.PacjentFacade
+pl.lodz.p.spjava.controllers.PacjentBean ..> pl.lodz.p.spjava.entity.Pacjent
+pl.lodz.p.spjava.controllers.PacjentBean --|> java.io.Serializable
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> javax.annotation.PostConstruct
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> javax.faces.view.ViewScoped
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> javax.inject.Inject
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> javax.inject.Named
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> java.util.ArrayList
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> java.util.List
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> javax.faces.application.FacesMessage
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> javax.faces.context.FacesContext
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade
+pl.lodz.p.spjava.controllers.PrzychodniaBean ..> pl.lodz.p.spjava.entity.Przychodnia
+pl.lodz.p.spjava.controllers.PrzychodniaBean --|> java.io.Serializable
+pl.lodz.p.spjava.controllers.WizytaBean ..> javax.enterprise.context.SessionScoped
+pl.lodz.p.spjava.controllers.WizytaBean ..> javax.inject.Inject
+pl.lodz.p.spjava.controllers.WizytaBean ..> javax.inject.Named
+pl.lodz.p.spjava.controllers.WizytaBean ..> pl.lodz.p.spjava.entity.Wizyta
+pl.lodz.p.spjava.controllers.WizytaBean ..> pl.lodz.p.spjava.entity.WizytaPK
+pl.lodz.p.spjava.controllers.WizytaBean --|> java.io.Serializable
+pl.lodz.p.spjava.ejb.facade.AdministratorFacade --|> pl.lodz.p.spjava.ejb.facade.AbstractFacade
+pl.lodz.p.spjava.ejb.facade.AdministratorFacade ..> java.lang.Override
+pl.lodz.p.spjava.ejb.facade.AdministratorFacade ..> javax.ejb.Stateless
+pl.lodz.p.spjava.ejb.facade.AdministratorFacade ..> javax.persistence.PersistenceContext
+pl.lodz.p.spjava.ejb.facade.AdministratorFacade ..> javax.persistence.EntityManager
+pl.lodz.p.spjava.ejb.facade.AdministratorFacade ..> pl.lodz.p.spjava.entity.Administrator
+pl.lodz.p.spjava.ejb.facade.KontoFacade --|> pl.lodz.p.spjava.ejb.facade.AbstractFacade
+pl.lodz.p.spjava.ejb.facade.KontoFacade ..> java.lang.Override
+pl.lodz.p.spjava.ejb.facade.KontoFacade ..> javax.ejb.Stateless
+pl.lodz.p.spjava.ejb.facade.KontoFacade ..> javax.persistence.PersistenceContext
+pl.lodz.p.spjava.ejb.facade.KontoFacade ..> java.util.List
+pl.lodz.p.spjava.ejb.facade.KontoFacade ..> javax.persistence.EntityManager
+pl.lodz.p.spjava.ejb.facade.KontoFacade ..> pl.lodz.p.spjava.entity.Konto
+pl.lodz.p.spjava.ejb.facade.LekarzFacade --|> pl.lodz.p.spjava.ejb.facade.AbstractFacade
+pl.lodz.p.spjava.ejb.facade.LekarzFacade ..> java.lang.Override
+pl.lodz.p.spjava.ejb.facade.LekarzFacade ..> javax.ejb.Stateless
+pl.lodz.p.spjava.ejb.facade.LekarzFacade ..> javax.persistence.PersistenceContext
+pl.lodz.p.spjava.ejb.facade.LekarzFacade ..> javax.persistence.EntityManager
+pl.lodz.p.spjava.ejb.facade.LekarzFacade ..> pl.lodz.p.spjava.entity.Lekarz
+pl.lodz.p.spjava.ejb.facade.PacjentFacade --|> pl.lodz.p.spjava.ejb.facade.AbstractFacade
+pl.lodz.p.spjava.ejb.facade.PacjentFacade ..> java.lang.Override
+pl.lodz.p.spjava.ejb.facade.PacjentFacade ..> javax.ejb.Stateless
+pl.lodz.p.spjava.ejb.facade.PacjentFacade ..> javax.persistence.PersistenceContext
+pl.lodz.p.spjava.ejb.facade.PacjentFacade ..> javax.persistence.EntityManager
+pl.lodz.p.spjava.ejb.facade.PacjentFacade ..> pl.lodz.p.spjava.entity.Pacjent
+pl.lodz.p.spjava.ejb.facade.PracownikFacade --|> pl.lodz.p.spjava.ejb.facade.AbstractFacade
+pl.lodz.p.spjava.ejb.facade.PracownikFacade ..> java.lang.Override
+pl.lodz.p.spjava.ejb.facade.PracownikFacade ..> javax.ejb.Stateless
+pl.lodz.p.spjava.ejb.facade.PracownikFacade ..> javax.persistence.PersistenceContext
+pl.lodz.p.spjava.ejb.facade.PracownikFacade ..> javax.persistence.EntityManager
+pl.lodz.p.spjava.ejb.facade.PracownikFacade ..> pl.lodz.p.spjava.entity.Pracownik
+pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade --|> pl.lodz.p.spjava.ejb.facade.AbstractFacade
+pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade ..> java.lang.Override
+pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade ..> javax.ejb.Stateless
+pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade ..> javax.persistence.PersistenceContext
+pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade ..> java.util.List
+pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade ..> javax.persistence.EntityManager
+pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade ..> javax.persistence.TypedQuery
+pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade ..> pl.lodz.p.spjava.entity.Przychodnia
+pl.lodz.p.spjava.ejb.facade.WizytaFacade --|> pl.lodz.p.spjava.ejb.facade.AbstractFacade
+pl.lodz.p.spjava.ejb.facade.WizytaFacade ..> java.lang.Override
+pl.lodz.p.spjava.ejb.facade.WizytaFacade ..> javax.ejb.Stateless
+pl.lodz.p.spjava.ejb.facade.WizytaFacade ..> javax.persistence.PersistenceContext
+pl.lodz.p.spjava.ejb.facade.WizytaFacade ..> javax.persistence.EntityManager
+pl.lodz.p.spjava.ejb.facade.WizytaFacade ..> pl.lodz.p.spjava.entity.Wizyta
+pl.lodz.p.spjava.ejb.intereceptor.LoggingInterceptor ..> javax.annotation.Resource
+pl.lodz.p.spjava.ejb.intereceptor.LoggingInterceptor ..> javax.interceptor.AroundInvoke
+pl.lodz.p.spjava.ejb.intereceptor.LoggingInterceptor ..> java.util.logging.Level
+pl.lodz.p.spjava.ejb.intereceptor.LoggingInterceptor ..> java.util.logging.Logger
+pl.lodz.p.spjava.ejb.intereceptor.LoggingInterceptor ..> javax.ejb.SessionContext
+pl.lodz.p.spjava.ejb.intereceptor.LoggingInterceptor ..> javax.interceptor.InvocationContext
+pl.lodz.p.spjava.entity.Administrator ..> javax.validation.constraints.NotNull
+pl.lodz.p.spjava.entity.Administrator ..> javax.validation.constraints.Size
+pl.lodz.p.spjava.entity.Administrator ..> pl.lodz.p.spjava.entity.Column
+pl.lodz.p.spjava.entity.Administrator ..> pl.lodz.p.spjava.entity.DiscriminatorValue
+pl.lodz.p.spjava.entity.Administrator ..> pl.lodz.p.spjava.entity.Entity
+pl.lodz.p.spjava.entity.Administrator ..> pl.lodz.p.spjava.entity.NamedQueries
+pl.lodz.p.spjava.entity.Administrator ..> pl.lodz.p.spjava.entity.NamedQuery
+pl.lodz.p.spjava.entity.Administrator ..> pl.lodz.p.spjava.entity.Table
+pl.lodz.p.spjava.entity.Administrator --|> pl.lodz.p.spjava.entity.Konto
+pl.lodz.p.spjava.entity.Administrator --|> java.io.Serializable
+pl.lodz.p.spjava.entity.Konto ..> javax.validation.constraints.NotNull
+pl.lodz.p.spjava.entity.Konto ..> javax.validation.constraints.Pattern
+pl.lodz.p.spjava.entity.Konto ..> javax.validation.constraints.Size
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.Column
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.DiscriminatorColumn
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.DiscriminatorValue
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.Entity
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.GeneratedValue
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.Id
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.Inheritance
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.SecondaryTable
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.Table
+pl.lodz.p.spjava.entity.Konto ..> pl.lodz.p.spjava.entity.TableGenerator
+pl.lodz.p.spjava.entity.Konto --|> java.io.Serializable
+pl.lodz.p.spjava.entity.Lekarz ..> java.lang.Override
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.Basic
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.Column
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.Entity
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.GeneratedValue
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.Id
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.JoinColumn
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.ManyToOne
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.NamedQueries
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.NamedQuery
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.OneToMany
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.Table
+pl.lodz.p.spjava.entity.Lekarz ..> javax.validation.constraints.NotNull
+pl.lodz.p.spjava.entity.Lekarz ..> javax.validation.constraints.Size
+pl.lodz.p.spjava.entity.Lekarz ..> javax.xml.bind.annotation.XmlTransient
+pl.lodz.p.spjava.entity.Lekarz ..> java.util.Set
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.CascadeType
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.FetchType
+pl.lodz.p.spjava.entity.Lekarz ..> javax.persistence.GenerationType
+pl.lodz.p.spjava.entity.Lekarz ..> javax.xml.bind.annotation.XmlRootElement
+pl.lodz.p.spjava.entity.Lekarz --|> java.io.Serializable
+pl.lodz.p.spjava.entity.Pacjent ..> java.lang.Override
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.Basic
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.Column
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.Entity
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.Id
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.JoinColumn
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.ManyToOne
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.NamedQueries
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.NamedQuery
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.OneToMany
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.Table
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.UniqueConstraint
+pl.lodz.p.spjava.entity.Pacjent ..> javax.validation.constraints.NotNull
+pl.lodz.p.spjava.entity.Pacjent ..> javax.validation.constraints.Size
+pl.lodz.p.spjava.entity.Pacjent ..> javax.xml.bind.annotation.XmlTransient
+pl.lodz.p.spjava.entity.Pacjent ..> java.util.Set
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.CascadeType
+pl.lodz.p.spjava.entity.Pacjent ..> javax.persistence.FetchType
+pl.lodz.p.spjava.entity.Pacjent ..> javax.xml.bind.annotation.XmlRootElement
+pl.lodz.p.spjava.entity.Pacjent --|> java.io.Serializable
+pl.lodz.p.spjava.entity.Pracownik ..> javax.validation.constraints.NotNull
+pl.lodz.p.spjava.entity.Pracownik ..> javax.validation.constraints.Size
+pl.lodz.p.spjava.entity.Pracownik ..> pl.lodz.p.spjava.entity.Column
+pl.lodz.p.spjava.entity.Pracownik ..> pl.lodz.p.spjava.entity.DiscriminatorValue
+pl.lodz.p.spjava.entity.Pracownik ..> pl.lodz.p.spjava.entity.Entity
+pl.lodz.p.spjava.entity.Pracownik ..> pl.lodz.p.spjava.entity.NamedQueries
+pl.lodz.p.spjava.entity.Pracownik ..> pl.lodz.p.spjava.entity.NamedQuery
+pl.lodz.p.spjava.entity.Pracownik ..> pl.lodz.p.spjava.entity.Table
+pl.lodz.p.spjava.entity.Pracownik --|> pl.lodz.p.spjava.entity.Konto
+pl.lodz.p.spjava.entity.Pracownik --|> java.io.Serializable
+pl.lodz.p.spjava.entity.Przychodnia ..> java.lang.Override
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.Basic
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.Column
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.Entity
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.GeneratedValue
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.Id
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.NamedQueries
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.NamedQuery
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.OneToMany
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.Table
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.validation.constraints.NotNull
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.validation.constraints.Size
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.xml.bind.annotation.XmlTransient
+pl.lodz.p.spjava.entity.Przychodnia ..> java.util.Set
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.CascadeType
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.FetchType
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.persistence.GenerationType
+pl.lodz.p.spjava.entity.Przychodnia ..> javax.xml.bind.annotation.XmlRootElement
+pl.lodz.p.spjava.entity.Przychodnia --|> java.io.Serializable
+pl.lodz.p.spjava.entity.Wizyta ..> java.lang.Override
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.Basic
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.Column
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.EmbeddedId
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.Entity
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.JoinColumn
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.ManyToOne
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.NamedQueries
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.NamedQuery
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.Table
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.UniqueConstraint
+pl.lodz.p.spjava.entity.Wizyta ..> javax.validation.constraints.NotNull
+pl.lodz.p.spjava.entity.Wizyta ..> javax.validation.constraints.Size
+pl.lodz.p.spjava.entity.Wizyta ..> java.util.Date
+pl.lodz.p.spjava.entity.Wizyta ..> javax.persistence.FetchType
+pl.lodz.p.spjava.entity.Wizyta --|> java.io.Serializable
+pl.lodz.p.spjava.entity.WizytaPK ..> java.lang.Override
+pl.lodz.p.spjava.entity.WizytaPK ..> javax.persistence.Basic
+pl.lodz.p.spjava.entity.WizytaPK ..> javax.persistence.Column
+pl.lodz.p.spjava.entity.WizytaPK ..> javax.persistence.Embeddable
+pl.lodz.p.spjava.entity.WizytaPK ..> javax.persistence.Temporal
+pl.lodz.p.spjava.entity.WizytaPK ..> javax.validation.constraints.NotNull
+pl.lodz.p.spjava.entity.WizytaPK ..> java.util.Date
+pl.lodz.p.spjava.entity.WizytaPK ..> javax.persistence.TemporalType
+pl.lodz.p.spjava.entity.WizytaPK --|> java.io.Serializable
+pl.lodz.p.spjava.web.utils.ContextUtils ..> java.security.Principal
+pl.lodz.p.spjava.web.utils.ContextUtils ..> java.util.ResourceBundle
+pl.lodz.p.spjava.web.utils.ContextUtils ..> javax.faces.application.FacesMessage
+pl.lodz.p.spjava.web.utils.ContextUtils ..> javax.faces.context.ExternalContext
+pl.lodz.p.spjava.web.utils.ContextUtils ..> javax.faces.context.FacesContext
+pl.lodz.p.spjava.web.utils.ContextUtils ..> javax.servlet.http.HttpSession
+pl.lodz.p.spjava.web.utils.KontoUtils ..> pl.lodz.p.spjava.entity.Administrator
+pl.lodz.p.spjava.web.utils.KontoUtils ..> pl.lodz.p.spjava.entity.Konto
+pl.lodz.p.spjava.web.utils.KontoUtils ..> pl.lodz.p.spjava.entity.Pracownik
+@enduml

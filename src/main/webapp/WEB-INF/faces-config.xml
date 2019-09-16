@@ -17,6 +17,16 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+     <navigation-rule>
+        <navigation-case>
+            <from-view-id>/dodajprzychodnie.xhtml</from-view-id>
+            <from-outcome>Edytuj</from-outcome>
+            <to-view-id>/edytujprzychodnie.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+   
 <!--        <managed-bean>
         <managed-bean-name>PrzychodniaBean</managed-bean-name>
         <managed-bean-class>pl.lodz.p.spjava.controllers.PrzychodniaBean</managed-bean-class>
