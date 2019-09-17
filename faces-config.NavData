@@ -4,13 +4,13 @@
     <Scope Scope="Project">
         <Node id="edytujprzychodnie.xhtml" x="400" y="150" zoom="true"/>
         <Node id="dodajwizyte.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="dodajlekarza.xhtml" x="900" y="150" zoom="true"/>
         <Node id="index.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="dodajlekarza.xhtml" x="900" y="150" zoom="true"/>
         <Node id="pokazprzychodnie.xhtml" x="150" y="450" zoom="true"/>
         <Node id="pokazlekarzy.xhtml" x="650" y="300" zoom="true"/>
         <Node id="edytujlekarza.xhtml" x="400" y="450" zoom="true"/>
-        <Node id="szablonAplikacji.xhtml" x="650" y="150" zoom="true"/>
         <Node id="dodajprzychodnie.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="szablonAplikacji.xhtml" x="650" y="150" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

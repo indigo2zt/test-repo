@@ -92,13 +92,18 @@ public class PrzychodniaBean implements Serializable {
 //    return.this.przychodniaFacade.findAll()
 //}
 
-    public String usunPrzychodnia(Przychodnia przychodnia) {
+    public String usun() {
+        if(selectPrzychodnia != null) {
+            FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectPrzychodnia", selectPrzychodnia);
+           
+        }
         this.przychodniaFacade.remove(przychodnia);
 //        this.dodajInformacje("Usunięto przychodnie");
-        return "usun";
+        return "Edytuj";
 
     }
-
+    
+  
 //ychodnia
 //    public List<Przychodnia> getLista() {
 //        EntityManager em = DBManager.getManager().createEntityManager();

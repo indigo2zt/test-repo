@@ -32,19 +32,21 @@
                 <p:column headerText="Opis">
                     <h:outputText value="#{przychodnia.opis}" />
                 </p:column>
-                
+                 
 
-<!--                <p:column headerText="Akcje">
-                    <p:commandButton value="usun"   disabled="#{not przychodnie.aktywne}" />
-                
-                
+                <p:column>
+                     <f:facet name="header">Akcje</f:facet>
+<!--                     <p:selectBooleanCheckbox disabled="true" value="#{konto.aktywne}" />-->
+<!--                   <p:commandButton value="usun"   disabled="#{not przychodnie.aktywne}" />
+                <p:column headerText="Akcje">
                 </p:column>-->
-                 <p:column headerText="Akcje">
-                     <p:commandButton value="Aktywuj" disabled="#{konto.aktywne}" action="#{PrzychodniaBean.aktywujKonto}" />
-                    <p:commandButton value="Deaktywuj" disabled="#{konto.aktywne}" action="#{PrzychodniaBean.deaktywujKonto}" />
+            
+<!--                  <p:commandButton value="Aktywuj" disabled="#{konto.aktywne}" action="#{PrzychodniaBean.aktywujKonto}" />
+                    <p:commandButton value="Deaktywuj" disabled="#{konto.aktywne}" action="#{PrzychodniaBean.deaktywujKonto}" />-->
                     <p:commandButton value="Usuń" action="#{PrzychodniaBean.usun}" />
                     <p:commandButton value="Edytuj" action="#{PrzychodniaBean.edytuj}"/>
                  </p:column>
+     
             </p:dataTable>
         </h:form>
 
