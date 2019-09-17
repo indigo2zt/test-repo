@@ -31,8 +31,8 @@ public class PrzychodniaUsunBean implements Serializable {
     }
 
     @PostConstruct
-    public void init() {
-        przychodnia = (Przychodnia) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("selectPrzychodnia");
+    public void reset() {
+       
     }
 
     public String usunPrzychodnie(){
