@@ -28,55 +28,58 @@
                 <p:column headerText="Kontakt">
                     <h:outputText value="#{przychodnia.kontakt}" />
                 </p:column>
-                
+
                 <p:column headerText="Opis">
                     <h:outputText value="#{przychodnia.opis}" />
                 </p:column>
-                 
 
-                <p:column>
-                     <f:facet name="header">Akcje</f:facet>
+
+<!--                <p:column>
+                    <f:facet name="header">Akcje</f:facet>-->
 <!--                     <p:selectBooleanCheckbox disabled="true" value="#{konto.aktywne}" />-->
 <!--                   <p:commandButton value="usun"   disabled="#{not przychodnie.aktywne}" />
-                <p:column headerText="Akcje">
-                </p:column>-->
-            
+               <p:column headerText="Akcje">
+               </p:column>-->
+
 <!--                  <p:commandButton value="Aktywuj" disabled="#{konto.aktywne}" action="#{PrzychodniaBean.aktywujKonto}" />
-                    <p:commandButton value="Deaktywuj" disabled="#{konto.aktywne}" action="#{PrzychodniaBean.deaktywujKonto}" />-->
-                    <p:commandButton value="Usuń" action="#{PrzychodniaBean.usun}" />
-                    <p:commandButton value="Edytuj" action="#{PrzychodniaBean.edytuj}"/>
-                 </p:column>
-     
+        <p:commandButton value="Deaktywuj" disabled="#{konto.aktywne}" action="#{PrzychodniaBean.deaktywujKonto}" />-->
+
+                <!--</p:column>-->
+
+
             </p:dataTable>
+            <p:commandButton value="Usuń" action="#{PrzychodniaBean.usun}" />
+            <p:commandButton value="Edytuj" action="#{PrzychodniaBean.edytuj}"/>
+            <p:commandButton value="Dodaj" action="Dodaj"/>
         </h:form>
 
         <h:form>
-<!--                        <table> <tr><th>Edytuj</th><th>Usun</th><th>Nazwa</th><th>Opis</th><th>Adres</th><th>Kontakt</th></tr>
-                            <ui:repeat value="#{PrzychodniaBean.lista}" var="przychodnia">
-                                <tr>
-                                    <td>
-                                        <h:commandLink value="Edytuj"
-                                                       action="#{PrzychodniaBean.zaladujDoEdycji}"
-                                                       actionListener="#{przychodniaBean.przychodniaListener}">
-                                            <f:param name="przychodniaID"
-                                                     value="#{przychodnia.id}" />
-                                        </h:commandLink>
-                                    </td>
-                                    <td>
-                                        <h:commandLink value ="Usun"
-                                                       action="#{przychodniaBean.usun}"
-                                                       actionListener="#{przychodniaBean.przychodnialistener}">
-                                            <f:param name ="przychodniaID"
-                                                     value="#{przychodnia.id}" />
-                                        </h:commandLink>
-                                    </td>
-                                    <td>#{przychodnia.nazwa}</td>
-                                    <td>#{przychodnia.opis}</td>
-                                    <td>#{przychodnia.adres}</td>
-                                    <td>#{przychodnia.kontakt}</td>
-                                </tr>
-                            </ui:repeat>
-                        </table>-->
+            <!--                        <table> <tr><th>Edytuj</th><th>Usun</th><th>Nazwa</th><th>Opis</th><th>Adres</th><th>Kontakt</th></tr>
+                                        <ui:repeat value="#{PrzychodniaBean.lista}" var="przychodnia">
+                                            <tr>
+                                                <td>
+                                                    <h:commandLink value="Edytuj"
+                                                                   action="#{PrzychodniaBean.zaladujDoEdycji}"
+                                                                   actionListener="#{przychodniaBean.przychodniaListener}">
+                                                        <f:param name="przychodniaID"
+                                                                 value="#{przychodnia.id}" />
+                                                    </h:commandLink>
+                                                </td>
+                                                <td>
+                                                    <h:commandLink value ="Usun"
+                                                                   action="#{przychodniaBean.usun}"
+                                                                   actionListener="#{przychodniaBean.przychodnialistener}">
+                                                        <f:param name ="przychodniaID"
+                                                                 value="#{przychodnia.id}" />
+                                                    </h:commandLink>
+                                                </td>
+                                                <td>#{przychodnia.nazwa}</td>
+                                                <td>#{przychodnia.opis}</td>
+                                                <td>#{przychodnia.adres}</td>
+                                                <td>#{przychodnia.kontakt}</td>
+                                            </tr>
+                                        </ui:repeat>
+                                    </table>-->
         </h:form>
     </ui:define>
 </ui:composition>

@@ -12,15 +12,22 @@
     </navigation-rule>-->
     <navigation-rule>
         <navigation-case>
-            <from-outcome>Dodaj</from-outcome>
+            <from-outcome>ListaPrzychodni</from-outcome>
             <to-view-id>/pokazprzychodnie.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Dodaj</from-outcome>
+            <to-view-id>/dodajprzychodnie.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
      <navigation-rule>
         <navigation-case>
            <from-outcome>Edytuj</from-outcome>
-            <to-view-id>/pokazprzychodnie.xhtml</to-view-id>
+            <to-view-id>/edytujprzychodnie.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

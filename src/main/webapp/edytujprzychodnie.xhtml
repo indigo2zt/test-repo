@@ -8,47 +8,37 @@
     <ui:define name="content">           
         <h1>Lista przychodni</h1>
         <h:form>
-            <p:column headerText="Id">
-                <p:outputLabel value="#{PrzychodniaEditBean.przychodnia.id}" />
-            </p:column>
+            <p:outputLabel value="#{PrzychodniaEditBean.przychodnia.id}" />
 
-            <p:column headerText="Nazwa">
-                <p:inputText value="#{PrzychodniaEditBean.przychodnia.nazwa}" />
-            </p:column>
-            
-             <p:column headerText="Adres">
-                <p:inputText value="#{PrzychodniaEditBean.przychodnia.adres}" />
-            </p:column>
-            
-             <p:column headerText="Kontakt">
-                <p:inputText value="#{PrzychodniaEditBean.przychodnia.kontakt}" />
-            </p:column>
+            <p:inputText value="#{PrzychodniaEditBean.przychodnia.nazwa}" />
 
-            <p:column headerText="Opis">
-                <p:inputText value="#{PrzychodniaEditBean.przychodnia.opis}" />
-            </p:column>
-           
-<!--            <p:commandButton value="Edit" action="#{PrzychodniaEditBean.edytujPrzychodnie()}"/>-->
-                             <!--                         <table>
-                                                          <tr><td>Nazwa</td><td><h:inputText id="nazwa"
-                                                           value="#{przychodniaBean.przychodnia.nazwa}" required="true"
-                                                           /></td></tr>
-                                                          <tr><td>Adres</td><td><h:inputText id="adres"
-                                                           value="#{przychodniaBean.przychodnia.adres}" required="true"
-                                                           /></td></tr>
-                                                          <tr><td>Kontakt</td><td><h:inputText id="kontakt"
-                                                           value="#{przychodniaBean.przychodnia.kontakt}" required="true"
-                                                           /></td></tr>
-                                                          <tr><td>Opis</td><td><h:inputTextarea id="opis"
-                                                           value="#{przychodniaBean.przychodnia.opis}" required="true"
-                                                           /></td></tr>
-                                                          <tr><td></td><h:commandButton
-                                                                  action="#{przychodniaBean.edytuj}" value="Edytuj" /></td></tr>
-      
-                             </table>-->
-                         
-    </h:form>
-</ui:define>
+            <p:inputText value="#{PrzychodniaEditBean.przychodnia.adres}" />
+
+            <p:inputText value="#{PrzychodniaEditBean.przychodnia.kontakt}" />
+
+            <p:inputText value="#{PrzychodniaEditBean.przychodnia.opis}" />
+
+            <p:commandButton value="Edit" action="#{PrzychodniaEditBean.edytujPrzychodnie()}"/>
+            <!--                         <table>
+                                         <tr><td>Nazwa</td><td><h:inputText id="nazwa"
+                                          value="#{przychodniaBean.przychodnia.nazwa}" required="true"
+                                          /></td></tr>
+                                         <tr><td>Adres</td><td><h:inputText id="adres"
+                                          value="#{przychodniaBean.przychodnia.adres}" required="true"
+                                          /></td></tr>
+                                         <tr><td>Kontakt</td><td><h:inputText id="kontakt"
+                                          value="#{przychodniaBean.przychodnia.kontakt}" required="true"
+                                          /></td></tr>
+                                         <tr><td>Opis</td><td><h:inputTextarea id="opis"
+                                          value="#{przychodniaBean.przychodnia.opis}" required="true"
+                                          /></td></tr>
+                                         <tr><td></td><h:commandButton
+                                                 action="#{przychodniaBean.edytuj}" value="Edytuj" /></td></tr>
+
+            </table>-->
+
+        </h:form>
+    </ui:define>
 </ui:composition>
 
 

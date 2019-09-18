@@ -21,7 +21,7 @@
                     <td>
                         <h:selectOneMenu id="przychodnia"
                         value="#{lekarzBean.lekarz.przychodnia}" required="true">
-                        <f:converter converterId="przychodniaConverter" />
+<!--                        <f:converter converterId="przychodniaConverter" />-->
                         <f:selectItems value="#{przychodniaBean.lista}"
                          var="przychodnia" itemValue="#{przychodnia}"
                          itemLabel="#{przychodnia.nazwa}" />
