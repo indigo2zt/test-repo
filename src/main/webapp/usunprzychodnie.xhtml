@@ -28,8 +28,10 @@
                 <p:inputText value="#{PrzychodniaUsunBean.przychodnia.opis}" />
             </p:column>
 
-           
-            <p:commandButton value="Usuń" action="#{PrzychodniaUsunBean.usunPrzychodnie()}"/>
+            <h:commandButton action="#{PrzychodniaUsunBean.usunPrzychodnie()}" value="#{PrzychodniaBean.usun}" />
+            
+            
+            <p:commandButton value="Usuń" action="#{PrzychodniaUsunBean.usunPrzychodnie()}" immediate="true"/>
                 </p:dataTable>
             </h:form>
 </ui:define>
