@@ -15,10 +15,10 @@
                     <td>Wybierz lekarza</td>
                     <td>
                         <h:selectOneMenu id="lekarz"
-                        value="#{wizytaBean.wizyta.wizytaPK.lekarz}"
+                        value="#{WizytaBean.wizyta.wizytaPK.lekarz}"
                         required="true">
                             <f:selectItems
-                                value="#{przychodniaBean.przychodnia.lekarzList}"
+                                value="#{PrzychodniaBean.przychodnia.lekarzList}"
                                 var="lekarz" itemValue="#{lekarz.id}"
                                 itemLabel="#{lekarz.imie} #{lekarz.nazwisko}" />
                         </h:selectOneMenu>
@@ -28,20 +28,21 @@
                     <td>Wybierz pacjenta</td>
                     <td>
                         <h:selectOneMenu id="pacjent"
-                         value="#{wizytaBean.wizyta.wizytaPK.pacjent}"
+                         value="#{WizytaBean.wizyta.wizytaPK.pacjent}"
                          required="true">
                             <f:selectItems
-                                value="#{przychodniaBean.przychodnia.pacjentList}"
+                                value="#{PrzychodniaBean.przychodnia.pacjentList}"
                                 var="pacjent" itemValue="#{pacjent.id}"
-                                itemLabel="#{pacjent.imie}" #{pacjent.nazwisko}" />
+                                itemLabel="#{pacjent.imie}" />
                         </h:selectOneMenu>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         Wpisz date i czas (w formacie RRRR-MM-DD GG:MM:SS):
+                    </td>
                     <td>
-                    <h:inputText value="#{wizytaBean.wizyta.wizytaPK.data}"
+                    <h:inputText value="#{WizytaBean.wizyta.wizytaPK.data}"
                                  required="true">
                         <f:convertDateTime timeZone="GMT+1" type="both" />
                     </h:inputText>
@@ -51,16 +52,16 @@
                 <tr>
                     <td>Wpisz numer pokoju</td>
                     <td>
-                        <h:inputText value="#{wizytaBean.wizyta.pokój}"
+                        <h:inputText value="#{WizytaBean.wizyta.pokoj}"
                                      required="true" />
                     </td>
                 </tr>
                 <tr>
-                    <td><td><h:commandButton action="#{wizytaBean.dodaj}"
+                    <td><h:commandButton action="#{WizytaBean.dodaj}"
                                              value="Dodaj"  /></td>
                 </tr>
                 </table>
-        </form>
+        </h:form>
         </ui:define>
 </ui:composition>
                 

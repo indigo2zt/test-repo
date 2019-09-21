@@ -70,6 +70,7 @@ public class Przychodnia implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Lekarz> lekarzList;
     
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Pacjent> pacjentList;
 
     public Przychodnia() {
@@ -137,6 +138,11 @@ public class Przychodnia implements Serializable {
     @XmlTransient
     public Set<Lekarz> getLekarzList() {
         return lekarzList;
+    }
+    
+    @XmlTransient
+    public Set<Pacjent> getPacjentList() {
+        return pacjentList;
     }
 
     public void setLekarzList(Set<Lekarz> lekarzList) {

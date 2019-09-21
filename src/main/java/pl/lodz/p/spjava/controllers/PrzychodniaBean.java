@@ -58,18 +58,10 @@ public class PrzychodniaBean implements Serializable {
     }
 
     public String dodaj() {
-
-//        this.przychodnia.setNazwa();
-//        this.przychodnia.setOpis();
-//        this.przychodnia.setAdres();
-//        this.przychodnia.setKontakt();
         przychodniaEndpoint.create(przychodnia);
         return "ListaPrzychodni";
     }
 
-//    public void dodajInformacje(String s) {
-//        FacesContext.getCurrentInstance().addMessage(null, newFacesMessage(FacesMessage.SEVERITY_INFO, s, ""));
-//    }
     @PostConstruct
     public void init() {
         przychodnie = przychodniaEndpoint.findAll();
@@ -77,8 +69,6 @@ public class PrzychodniaBean implements Serializable {
     }
 
     public String edytuj() {
-//        this.przychodniaFacade.edit(selectPrzychodnia);
-//      this.dodajInformacje("Edytowano przychodnie");
         if (selectPrzychodnia != null) {
             FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectPrzychodnia", selectPrzychodnia);
             return "Edytuj";
@@ -87,16 +77,12 @@ public class PrzychodniaBean implements Serializable {
         return "";
 
     }
-//  public List<Przychodnia> getAllPrzychodnie() {
-//        return this.PrzychodniaFacade.findAll(
-//  public List<Przychodnia>getAllPrzychodnie {
-//    return.this.przychodniaFacade.findAll()
-//}
 
-    public String usun() {
+    //public String usun() {
+    public List<Przychodnia> usun() {
         this.przychodniaEndpoint.remove(selectPrzychodnia);
-//        this.dodajInformacje("Usunięto przychodnie");
-        return "";
+        return this.getPrzychodnie();
+      //  return "";
 
     }
     

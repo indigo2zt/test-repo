@@ -9,7 +9,7 @@
     <ui:define name="content">
         <h1>Lista lekarzy</h1>
         <h:form>
-            <p:dataTable var="lekarz" value="#{lekarzBean.lista}" resizableColumns="true" style="margin-bottom:20px">
+            <p:dataTable var="lekarz" value="#{LekarzBean.lekarze}" resizableColumns="true" style="margin-bottom:20px" selectionMode="single" selection="#{LekarzBean.selectLekarz}" rowKey="#{lekarz.id}">
                 <p:column headerText="Id">
                     <h:outputText value="#{lekarz.id}" />
                 </p:column>
@@ -27,7 +27,10 @@
                 </p:column>
 
                 <p:column headerText="Akcje">
-                    <p:commandButton value="AKTYWUJ" />
+                    <p:commandButton value="EDYTUJ"  action="#{LekarzBean.edytuj}" />
+                    <p:commandButton value="USUŃ"  action="#{LekarzBean.usun}">
+                        <f:attribute name="selectLekarz" value="#{lekarz}"/>
+					</p:commandButton>
                 </p:column>
             </p:dataTable>
 <!--            <h:dataTable value="#{lekarzBean.lista}" var="lekarz">
