@@ -4,14 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import pl.lodz.p.spjava.entity.Przychodnia;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import p.lodz.p.spjava.endpoints.PrzychodniaEndpoint;
-import pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade;
 
 /**
  *
@@ -78,10 +76,12 @@ public class PrzychodniaBean implements Serializable {
 
     }
 
-    //public String usun() {
-    public List<Przychodnia> usun() {
+    public void usun() {
+   
         this.przychodniaEndpoint.remove(selectPrzychodnia);
-        return this.getPrzychodnie().subList(0, 0);
+                przychodnie = przychodniaEndpoint.findAll();
+
+       
        
        
       //  return "";

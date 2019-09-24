@@ -43,14 +43,15 @@
         <managed-bean-name>PrzychodniaBean</managed-bean-name>
         <managed-bean-class>pl.lodz.p.spjava.controllers.PrzychodniaBean</managed-bean-class>
     
-        <managed-bean-scope>session</managed-bean-scope></managed-bean>
-        <managed-bean>
-            <managed-bean-name>lekarzBean</managed-bean-name>
-            <managed-bean-class>pl.lodz.p.spjava.controllers.LekarzBean</managed-bean-class>
-            <managed-bean-scope>session</managed-bean-scope>
-        </managed-bean>
--->        <converter>
-            <converter-id>przychodniaConverter</converter-id>
-            <converter-class>pl.lodz.p.spjava.config.PrzychodniaConverter</converter-class>
-        </converter>
+            <managed-bean-scope>session</managed-bean-scope></managed-bean>
+            <managed-bean>
+                <managed-bean-name>lekarzBean</managed-bean-name>
+                <managed-bean-class>pl.lodz.p.spjava.controllers.LekarzBean</managed-bean-class>
+                <managed-bean-scope>session</managed-bean-scope>
+            </managed-bean>
+    -->        
+<!--    <converter>
+        <converter-id>przychodniaConverter</converter-id>
+        <converter-class>pl.lodz.p.spjava.config.PrzychodniaConverter</converter-class>
+    </converter>-->
 </faces-config>

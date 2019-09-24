@@ -4,35 +4,34 @@
                 template="./szablonAplikacji.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
     <ui:define name="content"> 
         <h1>Dodaj lekarza</h1>
         <h:form>
             <table>
                 <tr><td>Imie</td><td><h:inputText id="imie"
-                value="#{LekarzBean.lekarz.imie}" required="true" /></td></tr>
+                                                  value="#{LekarzBean.lekarz.imie}" required="true" /></td></tr>
                 <tr><td>Nazwisko</td><td><h:inputText id="nazwisko"
-                value="#{LekarzBean.lekarz.nazwisko}" required="true" /></td></tr>
+                                                      value="#{LekarzBean.lekarz.nazwisko}" required="true" /></td></tr>
                 <tr><td>Specjalizacja</td><td><h:inputText id="specjalizacja"
-                 value="#{LekarzBean.lekarz.specjalizacja}" required="true"
-                 /></td></tr>
+                                                           value="#{LekarzBean.lekarz.specjalizacja}" required="true"
+                                                           /></td></tr>
                 <tr>
                     <td>Przychodnia</td>
                     <td>
-                        <h:selectOneMenu id="przychodnia"
-                        value="#{LekarzBean.lekarz.przychodnia}" required="true">
-<!--                        <f:converter converterId="PrzychodniaConverter" />-->
-                        <f:selectItems value="#{PrzychodniaBean.przychodnie}"
-                         var="przychodnia" itemValue="#{przychodnia}"
-                         itemLabel="#{przychodnia.nazwa}" />
-                        </h:selectOneMenu>
+                        <p:selectOneMenu id="przychodnia" value="#{LekarzBean.selectedPrzychodnia}" required="true">
+                            <f:selectItems value="#{LekarzBean.przychodnie}"
+                                           var="przychodnia"
+                                           itemValue="#{przychodnia}"
+                                           itemLabel="#{przychodnia.nazwa}" />
+                        </p:selectOneMenu>
                     </td>
                 </tr>
                 <tr><td></td><td><h:commandButton action="#{LekarzBean.dodaj}"
-                value="Dodaj" /></td></tr>
+                                                  value="Dodaj" /></td></tr>
             </table>
         </h:form>
-        </ui:define>
+    </ui:define>
 </ui:composition>
-        
-        
+

@@ -5,24 +5,26 @@
  */
 package pl.lodz.p.spjava.controllers;
 
-import javax.enterprise.context.RequestScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import p.lodz.p.spjava.endpoints.LekarzEndpoint;
+import p.lodz.p.spjava.endpoints.PrzychodniaEndpoint;
 import pl.lodz.p.spjava.ejb.facade.LekarzFacade;
 import pl.lodz.p.spjava.entity.Lekarz;
+import pl.lodz.p.spjava.entity.Przychodnia;
 
 /**
  *
  * @author java
  */
-@RequestScoped
+@ViewScoped
 @Named("LekarzBean")
 
 public class LekarzBean implements Serializable {
@@ -33,7 +35,30 @@ public class LekarzBean implements Serializable {
     @Inject
     private LekarzEndpoint lekarzEndpoint;
 
+    @Inject
+    private PrzychodniaEndpoint przychodniaEndpoint;
+
     private List<Lekarz> lekarze = new ArrayList<>();
+
+    private List<Przychodnia> przychodnie = new ArrayList<>();
+
+    public List<Przychodnia> getPrzychodnie() {
+        return przychodnie;
+    }
+
+    public void setPrzychodnie(List<Przychodnia> przychodnie) {
+        this.przychodnie = przychodnie;
+    }
+
+    private Przychodnia selectedPrzychodnia;
+
+    public Przychodnia getSelectedPrzychodnia() {
+        return selectedPrzychodnia;
+    }
+
+    public void setSelectedPrzychodnia(Przychodnia selectedPrzychodnia) {
+        this.selectedPrzychodnia = selectedPrzychodnia;
+    }
 
     public LekarzBean() {
     }
@@ -68,6 +93,8 @@ public class LekarzBean implements Serializable {
     @PostConstruct
     public void init() {
         lekarze = lekarzEndpoint.findAll();
+        przychodnie.addAll(przychodniaEndpoint.findAll());
+        selectedPrzychodnia = przychodnie.get(0);
 
     }
 

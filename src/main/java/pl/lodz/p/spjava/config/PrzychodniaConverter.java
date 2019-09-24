@@ -35,3 +35,9 @@ public class PrzychodniaConverter implements Converter {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
+
+//    @Override
+//    public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//}
