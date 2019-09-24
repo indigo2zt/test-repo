@@ -4,10 +4,11 @@
                  xmlns:h="http://xmlns.jcp.org/jsf/html"
                  template="./szablonAplikacji.xhtml"
                  xmlns="http://www.w3.org/1999/xhtml"
-                 xmlns:p="http://primefaces.org/ui">
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:define name="content">           
         <h1>Lista przychodni</h1>
-        <h:form>
+        <h:form> 
             <p:outputLabel value="#{PrzychodniaEditBean.przychodnia.id}" />
 
             <p:inputText value="#{PrzychodniaEditBean.przychodnia.nazwa}" />
@@ -18,7 +19,7 @@
 
             <p:inputText value="#{PrzychodniaEditBean.przychodnia.opis}" />
 
-            <p:commandButton value="Edit" action="#{PrzychodniaEditBean.edytujPrzychodnie()}"/>
+            <p:commandButton value="Edytuj" action="#{PrzychodniaEditBean.edytujPrzychodnie()}"/>
             <!--                         <table>
                                          <tr><td>Nazwa</td><td><h:inputText id="nazwa"
                                           value="#{przychodniaBean.przychodnia.nazwa}" required="true"
@@ -36,7 +37,6 @@
                                                  action="#{przychodniaBean.edytuj}" value="Edytuj" /></td></tr>
 
             </table>-->
-
         </h:form>
     </ui:define>
 </ui:composition>

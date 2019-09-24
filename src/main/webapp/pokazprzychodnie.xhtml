@@ -34,7 +34,7 @@
                 </p:column>
 
             </p:dataTable>
-            <p:commandButton value="Usuń" action="#{PrzychodniaBean.usun}" actionListener="#{PrzychodniaBean.usun}"  update="@form" ajax="true"/>
+            <p:commandButton value="Usuń" action="#{PrzychodniaBean.usun}" actionListener="#{PrzychodniaBean.usun}"  update="#{przychodnia}" />
             <p:commandButton value="Edytuj" action="#{PrzychodniaBean.edytuj}"/>
             <p:commandButton value="Dodaj" action="Dodaj"/>
         </h:form>

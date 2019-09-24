@@ -47,15 +47,15 @@ public class Lekarz implements Serializable {
     @Column(name = "ID", nullable = false)
     private Integer id;
     @Basic(optional = false)
-    @Size(min = 1, max = 50)
+    @Size(min = 1)
     @Column(name = "IMIE", nullable = false, length = 50)
     private String imie;
     @Basic(optional = false)
-    @Size(min = 1, max = 50)
+    @Size(min = 1)
     @Column(name = "NAZWISKO", nullable = false, length = 50)
     private String nazwisko;
     @Basic(optional = false)
-    @Size(min = 1, max = 50)
+    @Size(min = 1)
     @Column(name = "SPECJALIZACJA", nullable = false, length = 50)
     private String specjalizacja;
     @JoinColumn(name = "PRZYCHODNIA", referencedColumnName = "ID", nullable = false)

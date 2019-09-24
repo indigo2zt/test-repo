@@ -24,7 +24,7 @@ import javax.validation.constraints.Size;
 public class Pracownik extends Konto implements Serializable {
 
     @NotNull
-    @Size(max=12,message="{constraint.string.length.toolong}")
+    @Size(message="{constraint.string.length.toolong}")
     @Column(name = "intercom", unique=true, nullable=false, length=12)
     private String intercom;
 

@@ -46,15 +46,15 @@ public class Pacjent implements Serializable {
     @Column(name = "ID", nullable = false)
     private Integer id;
     @Basic(optional = false)
-    @Size(min = 1, max = 50)
+    @Size(min = 1)
     @Column(name = "IMIE", nullable = false, length = 50)
     private String imie;
     @Basic(optional = false)
-    @Size(min = 1, max = 50)
+    @Size(min = 1)
     @Column(name = "NAZWISKO", nullable = false, length = 50)
     private String nazwisko;
     @Basic(optional = false)
-    @Size(min = 1, max = 11)
+    @Size(min = 1)
     @Column(name = "PESEL", nullable = false, length = 11)
     private String pesel;
     @JoinColumn(name = "PRZYCHODNIA", referencedColumnName = "ID", nullable = false)

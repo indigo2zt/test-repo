@@ -49,8 +49,8 @@
             <managed-bean-class>pl.lodz.p.spjava.controllers.LekarzBean</managed-bean-class>
             <managed-bean-scope>session</managed-bean-scope>
         </managed-bean>
-        <converter>
+-->        <converter>
             <converter-id>przychodniaConverter</converter-id>
             <converter-class>pl.lodz.p.spjava.config.PrzychodniaConverter</converter-class>
-        </converter>-->
+        </converter>
 </faces-config>

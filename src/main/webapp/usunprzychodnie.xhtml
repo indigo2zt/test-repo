@@ -31,7 +31,7 @@
             <h:commandButton action="#{PrzychodniaUsunBean.usunPrzychodnie()}" value="#{PrzychodniaBean.usun}" />
             
             
-            <p:commandButton value="Usuń" action="#{PrzychodniaUsunBean.usunPrzychodnie()}" immediate="true"/>
+            <p:commandButton value="Usuń" action="#{PrzychodniaUsunBean.usunPrzychodnie()}" immediate="true" update="przychodnia"/>
                 </p:dataTable>
             </h:form>
 </ui:define>

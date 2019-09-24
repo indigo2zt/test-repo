@@ -28,7 +28,7 @@ import javax.validation.constraints.Size;
 public class Administrator extends Konto implements Serializable {
 
     @NotNull
-    @Size(max=12,message="{constraint.string.length.toolong}")
+    @Size(message="{constraint.string.length.toolong}")
     @Column(name = "AlarmNumber", unique=true, nullable=false, length=12)
     private String alarmNumber;
 

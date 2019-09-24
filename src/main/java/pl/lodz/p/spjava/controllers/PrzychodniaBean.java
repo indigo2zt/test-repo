@@ -81,7 +81,9 @@ public class PrzychodniaBean implements Serializable {
     //public String usun() {
     public List<Przychodnia> usun() {
         this.przychodniaEndpoint.remove(selectPrzychodnia);
-        return this.getPrzychodnie();
+        return this.getPrzychodnie().subList(0, 0);
+       
+       
       //  return "";
 
     }

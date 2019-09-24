@@ -1,34 +1,34 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="./szablonAplikacji.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://java.sun.com/jsf/core">
     <ui:define name="content"> 
-        <h1>Dodaj lekarza</h1>
+        <h1>Dodaj pacjenta</h1>
         <h:form>
             <table>
                 <tr><td>Imie</td><td><h:inputText id="imie"
-                value="#{LekarzBean.lekarz.imie}" required="true" /></td></tr>
+                value="#{PacjentBean.pacjent.imie}" required="true" /></td></tr>
                 <tr><td>Nazwisko</td><td><h:inputText id="nazwisko"
-                value="#{LekarzBean.lekarz.nazwisko}" required="true" /></td></tr>
-                <tr><td>Specjalizacja</td><td><h:inputText id="specjalizacja"
-                 value="#{LekarzBean.lekarz.specjalizacja}" required="true"
-                 /></td></tr>
-                <tr>
+                value="#{PacjentBean.pacjent.nazwisko}" required="true" /></td></tr>
+                <tr><td>Adres</td><td><h:inputText id="adres"
+                 value="#{PacjentBean.pacjent.adres}" required="true"   /></td></tr>          
+                 <tr><td>Pesel</td><td><h:inputText id="pesel"
+                 value="#{PacjentBean.pacjent.pesel}" required="true"  /></td></tr>
+                                                    
                     <td>Przychodnia</td>
                     <td>
                         <h:selectOneMenu id="przychodnia"
-                        value="#{LekarzBean.lekarz.przychodnia}" required="true">
-<!--                        <f:converter converterId="PrzychodniaConverter" />-->
+                        value="#{PacjentBean.pacjent.przychodnia}" required="true">
+                        <f:converter converterId="przychodniaConverter" />
                         <f:selectItems value="#{PrzychodniaBean.przychodnie}"
                          var="przychodnia" itemValue="#{przychodnia}"
                          itemLabel="#{przychodnia.nazwa}" />
                         </h:selectOneMenu>
                     </td>
                 </tr>
-                <tr><td></td><td><h:commandButton action="#{LekarzBean.dodaj}"
+                <tr><td></td><td><h:commandButton action="#{PacjentBean.dodaj}"
                 value="Dodaj" /></td></tr>
             </table>
         </h:form>

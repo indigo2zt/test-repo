@@ -7,9 +7,9 @@ package pl.lodz.p.spjava.controllers;
 
 import java.io.Serializable;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import pl.lodz.p.spjava.ejb.facade.PacjentFacade;
 import pl.lodz.p.spjava.entity.Pacjent;
@@ -19,7 +19,7 @@ import pl.lodz.p.spjava.entity.Pacjent;
  * @author java
  */
 @Named(value = "pacjentBean")
-@RequestScoped
+@ViewScoped
 public class PacjentBean implements Serializable{
     private Pacjent pacjent = new Pacjent();
     @Inject
@@ -42,6 +42,5 @@ public class PacjentBean implements Serializable{
     }
     public void dodajInformacje(String s) {
     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,s,""));
-        
-}
+    }
 }

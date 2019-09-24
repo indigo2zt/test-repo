@@ -43,7 +43,7 @@ public class Wizyta implements Serializable {
     @EmbeddedId
     protected WizytaPK wizytaPK;
     @Basic(optional = false)
-    @Size(min = 1, max = 5)
+    @Size(min = 1)
     @Column(name = "POKOJ", nullable = false, length = 5)
     private String pokoj;
     @JoinColumn(name = "LEKARZ", referencedColumnName = "ID", nullable = false, insertable = false, updatable = false)

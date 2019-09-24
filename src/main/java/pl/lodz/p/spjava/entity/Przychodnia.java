@@ -52,7 +52,7 @@ public class Przychodnia implements Serializable {
     private String nazwa;
 
     @Basic(optional = false)
-    @Size(min = 1, max = 100)
+    @Size(min = 1)
     @Column(name = "OPIS", length = 100, nullable = false)
     private String opis;
 
