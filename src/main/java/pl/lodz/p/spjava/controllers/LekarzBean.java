@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -24,7 +25,7 @@ import pl.lodz.p.spjava.entity.Przychodnia;
  *
  * @author java
  */
-@ViewScoped
+@SessionScoped
 @Named("LekarzBean")
 
 public class LekarzBean implements Serializable {

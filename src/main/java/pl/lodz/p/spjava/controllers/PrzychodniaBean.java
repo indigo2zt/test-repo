@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import pl.lodz.p.spjava.entity.Przychodnia;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -15,7 +16,7 @@ import p.lodz.p.spjava.endpoints.PrzychodniaEndpoint;
  *
  * @author java
  */
-@ViewScoped
+@SessionScoped
 @Named("PrzychodniaBean")
 public class PrzychodniaBean implements Serializable {
 

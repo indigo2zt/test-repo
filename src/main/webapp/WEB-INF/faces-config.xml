@@ -38,20 +38,29 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
-   
-<!--        <managed-bean>
-        <managed-bean-name>PrzychodniaBean</managed-bean-name>
-        <managed-bean-class>pl.lodz.p.spjava.controllers.PrzychodniaBean</managed-bean-class>
     
-            <managed-bean-scope>session</managed-bean-scope></managed-bean>
+    <navigation-rule>
+        <navigation-case>
+           <from-outcome>Edytuj</from-outcome>
+            <to-view-id>/edytujprzychodnie.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+   
+        <managed-bean>
+            <managed-bean-name->PrzychodniaBean</managed-bean-name->
+            <managed-bean-class>pl.lodz.p.spjava.controllers.PrzychodniaBean</managed-bean-class>
+   <managed-bean-scope>session</managed-bean-scope>
+            </managed-bean>
+            
             <managed-bean>
-                <managed-bean-name>lekarzBean</managed-bean-name>
+                <managed-bean-name>LekarzBean</managed-bean-name>
                 <managed-bean-class>pl.lodz.p.spjava.controllers.LekarzBean</managed-bean-class>
                 <managed-bean-scope>session</managed-bean-scope>
             </managed-bean>
-    -->        
-<!--    <converter>
-        <converter-id>przychodniaConverter</converter-id>
+            
+    <converter>
+        <converter-id>PrzychodniaConverter</converter-id>
         <converter-class>pl.lodz.p.spjava.config.PrzychodniaConverter</converter-class>
-    </converter>-->
+    </converter>
 </faces-config>
