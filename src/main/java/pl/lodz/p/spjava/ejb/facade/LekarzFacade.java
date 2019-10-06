@@ -15,6 +15,7 @@ import pl.lodz.p.spjava.entity.Lekarz;
  * @author java
  */
 @Stateless
+//mandatory
 public class LekarzFacade extends AbstractFacade<Lekarz> {
 
     @PersistenceContext(unitName = "Przychodnielekarskie")

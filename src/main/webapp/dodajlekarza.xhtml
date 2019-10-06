@@ -23,7 +23,7 @@
                         <p:selectOneMenu id="przychodnia" value="#{LekarzBean.selectedPrzychodnia}" required="true">
                             <f:selectItems value="#{LekarzBean.przychodnie}"
                                            var="przychodnia"
-                                           itemValue="#{przychodnia}"
+                                           itemValue="#{przychodnia.id}"
                                            itemLabel="#{przychodnia.nazwa}" />
                         </p:selectOneMenu>
                     </td>

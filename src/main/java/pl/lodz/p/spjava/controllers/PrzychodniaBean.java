@@ -16,7 +16,7 @@ import p.lodz.p.spjava.endpoints.PrzychodniaEndpoint;
  *
  * @author java
  */
-@SessionScoped
+@ViewScoped
 @Named("PrzychodniaBean")
 public class PrzychodniaBean implements Serializable {
 

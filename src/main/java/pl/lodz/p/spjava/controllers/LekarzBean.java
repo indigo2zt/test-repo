@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package pl.lodz.p.spjava.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -18,6 +13,7 @@ import javax.inject.Named;
 import p.lodz.p.spjava.endpoints.LekarzEndpoint;
 import p.lodz.p.spjava.endpoints.PrzychodniaEndpoint;
 import pl.lodz.p.spjava.ejb.facade.LekarzFacade;
+import pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade;
 import pl.lodz.p.spjava.entity.Lekarz;
 import pl.lodz.p.spjava.entity.Przychodnia;
 
@@ -25,19 +21,19 @@ import pl.lodz.p.spjava.entity.Przychodnia;
  *
  * @author java
  */
-@SessionScoped
+@ViewScoped
 @Named("LekarzBean")
 
 public class LekarzBean implements Serializable {
 
     private Lekarz lekarz = new Lekarz();
     @Inject
-    private LekarzFacade lekarzFacade;
+    private LekarzFacade lekarzFacade;//tego nie powinno byc
     @Inject
-    private LekarzEndpoint lekarzEndpoint;
+    private LekarzEndpoint lekarzEndpoint;//
 
     @Inject
-    private PrzychodniaEndpoint przychodniaEndpoint;
+    private PrzychodniaFacade przychodniaFacade;//powinienn byc endpoint
 
     private List<Lekarz> lekarze = new ArrayList<>();
 
@@ -51,13 +47,13 @@ public class LekarzBean implements Serializable {
         this.przychodnie = przychodnie;
     }
 
-    private Przychodnia selectedPrzychodnia;
+    private Integer selectedPrzychodnia;
 
-    public Przychodnia getSelectedPrzychodnia() {
+    public Integer getSelectedPrzychodnia() {
         return selectedPrzychodnia;
     }
 
-    public void setSelectedPrzychodnia(Przychodnia selectedPrzychodnia) {
+    public void setSelectedPrzychodnia(Integer selectedPrzychodnia) {
         this.selectedPrzychodnia = selectedPrzychodnia;
     }
 
@@ -73,7 +69,9 @@ public class LekarzBean implements Serializable {
     }
 
     public String dodaj() {
-
+        //wyszukac przychodnie o id selectedPrzychodnia
+        Przychodnia przychodnia = przychodniaFacade.find(selectedPrzychodnia);
+        lekarz.setPrzychodnia(przychodnia);
         lekarzFacade.create(lekarz);
         return "Dodaj";
     }
@@ -94,8 +92,8 @@ public class LekarzBean implements Serializable {
     @PostConstruct
     public void init() {
         lekarze = lekarzEndpoint.findAll();
-        przychodnie.addAll(przychodniaEndpoint.findAll());
-        selectedPrzychodnia = przychodnie.get(0);
+        przychodnie.addAll(przychodniaFacade.findAll());//uzyc endpointa
+        selectedPrzychodnia = 0;
 
     }
 
