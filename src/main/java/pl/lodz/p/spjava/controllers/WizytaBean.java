@@ -7,6 +7,7 @@ package pl.lodz.p.spjava.controllers;
 
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import pl.lodz.p.spjava.entity.Wizyta;
@@ -16,7 +17,7 @@ import pl.lodz.p.spjava.entity.WizytaPK;
  *
  * @author java
  */
-@SessionScoped
+@ViewScoped
 @Named("WizytaBean")
     public class WizytaBean implements Serializable{
         private Wizyta wizyta;
@@ -48,8 +49,7 @@ import pl.lodz.p.spjava.entity.WizytaPK;
         this.przychodniaID = przychodniaID;
     }
     
-   
-    
+  
     
 //
 //   

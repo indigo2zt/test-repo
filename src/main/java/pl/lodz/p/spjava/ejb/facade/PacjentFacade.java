@@ -6,6 +6,8 @@
 package pl.lodz.p.spjava.ejb.facade;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import pl.lodz.p.spjava.entity.Pacjent;
@@ -15,6 +17,7 @@ import pl.lodz.p.spjava.entity.Pacjent;
  * @author java
  */
 @Stateless
+@TransactionAttribute(TransactionAttributeType.MANDATORY)
 public class PacjentFacade extends AbstractFacade<Pacjent> {
 
     @PersistenceContext(unitName = "Przychodnielekarskie")

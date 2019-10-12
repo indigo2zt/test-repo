@@ -38,7 +38,6 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
-    
     <navigation-rule>
         <navigation-case>
            <from-outcome>Edytuj</from-outcome>
@@ -46,6 +45,28 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Dodaj lekarza</from-outcome>
+            <to-view-id>/dodajlekarza.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+     <navigation-rule>
+        <navigation-case>
+            <from-outcome>Dodaj pacjenta</from-outcome>
+            <to-view-id>/dodajpacjenta.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+       <navigation-rule>
+        <navigation-case>
+            <from-outcome>Dodaj wizyte</from-outcome>
+            <to-view-id>/dodajwizyte.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+   
    
         <managed-bean>
             <managed-bean-name->PrzychodniaBean</managed-bean-name->

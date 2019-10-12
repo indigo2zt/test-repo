@@ -17,6 +17,7 @@ import pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade;
 import pl.lodz.p.spjava.entity.Lekarz;
 import pl.lodz.p.spjava.entity.Przychodnia;
 
+
 /**
  *
  * @author java
@@ -27,13 +28,13 @@ import pl.lodz.p.spjava.entity.Przychodnia;
 public class LekarzBean implements Serializable {
 
     private Lekarz lekarz = new Lekarz();
+   
     @Inject
     private LekarzFacade lekarzFacade;//tego nie powinno byc
-    @Inject
-    private LekarzEndpoint lekarzEndpoint;//
 
     @Inject
     private PrzychodniaFacade przychodniaFacade;//powinienn byc endpoint
+//    private PrzychodniaEndpoint przychodniaEndpoint;
 
     private List<Lekarz> lekarze = new ArrayList<>();
 
@@ -91,7 +92,7 @@ public class LekarzBean implements Serializable {
 
     @PostConstruct
     public void init() {
-        lekarze = lekarzEndpoint.findAll();
+        lekarze = lekarzFacade.findAll();
         przychodnie.addAll(przychodniaFacade.findAll());//uzyc endpointa
         selectedPrzychodnia = 0;
 
@@ -106,7 +107,7 @@ public class LekarzBean implements Serializable {
     public String edytuj() {
         if (selectLekarz != null) {
             FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectLekarz", selectLekarz);
-            return "Edytuj";
+            return "EDYTUJ";
         }
 
         return "";
@@ -115,7 +116,7 @@ public class LekarzBean implements Serializable {
 
     //public String usun() {
     public List<Lekarz> usun() {
-        this.lekarzEndpoint.remove(selectLekarz);
+        this.lekarzFacade.remove(selectLekarz);
         return lekarze;
 
     }

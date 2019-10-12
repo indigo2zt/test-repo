@@ -12,6 +12,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -42,11 +44,12 @@ public class Pacjent implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID")
+    @NotNull
     private Integer id;
     @Basic(optional = false)
-    @Size(min = 1)
     @Column(name = "IMIE", nullable = false, length = 50)
     private String imie;
     @Basic(optional = false)
@@ -57,7 +60,7 @@ public class Pacjent implements Serializable {
     @Size(min = 1)
     @Column(name = "PESEL", nullable = false, length = 11)
     private String pesel;
-    @JoinColumn(name = "PRZYCHODNIA", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "PRZYCHODNIA", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Przychodnia przychodnia;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pacjent1", fetch = FetchType.EAGER)
