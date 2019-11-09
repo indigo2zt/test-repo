@@ -13,6 +13,7 @@ import pl.lodz.p.spjava.ejb.facade.PacjentFacade;
 import pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade;
 import pl.lodz.p.spjava.entity.Pacjent;
 import pl.lodz.p.spjava.entity.Przychodnia;
+import pl.lodz.p.spjava.validators.PeselValidator;
 
 /**
  *
@@ -24,7 +25,7 @@ import pl.lodz.p.spjava.entity.Przychodnia;
 public class PacjentBean implements Serializable {
 
     private Pacjent pacjent = new Pacjent();
-   
+
     @Inject
     private PacjentFacade pacjentFacade;//tego nie powinno byc
 
@@ -67,10 +68,15 @@ public class PacjentBean implements Serializable {
 
     public String dodaj() {
         //wyszukac przychodnie o id selectedPrzychodnia
-        Przychodnia przychodnia = przychodniaFacade.find(selectedPrzychodnia);
-        pacjent.setPrzychodnia(przychodnia);
-        pacjentFacade.create(pacjent);
-        return "Dodaj";
+        PeselValidator pacjentWalidowany = new PeselValidator(pacjent.getPesel());
+        if (pacjentWalidowany.isValid()) {
+            Przychodnia przychodnia = przychodniaFacade.find(selectedPrzychodnia);
+            pacjent.setPrzychodnia(przychodnia);
+            pacjentFacade.create(pacjent);
+            return "Dodaj Pacjenta";
+        } else {
+            return "Error";
+        }
     }
 //    public String dodaj() {
 //        EntityManager em = (EntityManager) DBManager.getManager().createEntityManagerFactory();
@@ -90,7 +96,7 @@ public class PacjentBean implements Serializable {
     public void init() {
         pacjenci = pacjentFacade.findAll();
         przychodnie.addAll(przychodniaFacade.findAll());//uzyc endpointa
-        selectedPrzychodnia = 0;
+        selectedPrzychodnia = 1;
 
     }
 
@@ -101,12 +107,17 @@ public class PacjentBean implements Serializable {
     private Pacjent selectPacjent;
 
     public String edytuj() {
-        if (selectPacjent != null) {
-            FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectPacjent", selectPacjent);
-            return "EDYTUJ";
-        }
+        PeselValidator pacjentWalidowany = new PeselValidator(selectPacjent.getPesel());
+        if (pacjentWalidowany.isValid()) {
+            if (selectPacjent != null) {
+                FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectPacjent", selectPacjent);
+                return "EDYTUJ Pacjenta";
+            }
 
-        return "";
+            return "";
+        } else {
+            return "Error";
+        }
 
     }
 
@@ -126,4 +137,3 @@ public class PacjentBean implements Serializable {
     }
 
 }
-

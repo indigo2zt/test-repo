@@ -22,14 +22,14 @@ import pl.lodz.p.spjava.web.utils.ContextUtils;
 @Named("utworzAdministratoraPageBean")
 @RequestScoped
 public class UtworzAdministratoraPageBean {
-    
+
     public UtworzAdministratoraPageBean() {
     }
-    
+
     @Inject
     private KontoSession kontoSession;
 
-    private Administrator konto =  new Administrator();
+    private Administrator konto = new Administrator();
 
     public Administrator getKonto() {
         return konto;
@@ -44,13 +44,13 @@ public class UtworzAdministratoraPageBean {
     public void setHasloPowtorz(String hasloPowtorz) {
         this.hasloPowtorz = hasloPowtorz;
     }
-    
+
     public String utworz() {
-        if (!(hasloPowtorz.equals(konto.getHaslo()))){
+        if (!(hasloPowtorz.equals(konto.getHaslo()))) {
             ContextUtils.emitInternationalizedMessage("utworzAdministratoraForm:passwordRepeat", "passwords.not.matching");
             return null;
         }
-            
+
         return kontoSession.utworzAdministratora(konto);
     }
 

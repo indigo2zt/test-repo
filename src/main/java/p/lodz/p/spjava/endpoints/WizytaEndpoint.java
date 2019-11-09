@@ -20,10 +20,11 @@ import pl.lodz.p.spjava.entity.Wizyta;
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class WizytaEndpoint {
-     @Inject
+
+    @Inject
     private WizytaFacade wizytaFacade;
-    
-    public void edit(Wizyta wizyta){
+
+    public void edit(Wizyta wizyta) {
         wizytaFacade.edit(wizyta);
     }
 
@@ -40,7 +41,6 @@ public class WizytaEndpoint {
     }
 }
 
-
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+// Add business logic below. (Right-click in editor and choose
+// "Insert Code > Add Business Method")
 

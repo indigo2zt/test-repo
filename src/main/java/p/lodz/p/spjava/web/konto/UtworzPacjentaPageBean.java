@@ -18,14 +18,14 @@ import pl.lodz.p.spjava.web.utils.ContextUtils;
 @Named("utworzPacjentaPageBean")
 @RequestScoped
 public class UtworzPacjentaPageBean {
-    
+
     public UtworzPacjentaPageBean() {
     }
-    
+
     @Inject
     private KontoSession kontoSession;
 
-    private Pacjent konto =  new Pacjent();
+    private Pacjent konto = new Pacjent();
 
     public Pacjent getKonto() {
         return konto;
@@ -40,15 +40,14 @@ public class UtworzPacjentaPageBean {
     public void setHasloPowtorz(String hasloPowtorz) {
         this.hasloPowtorz = hasloPowtorz;
     }
-    
+
     public String utworz() {
-        if (!(hasloPowtorz.equals(konto.getHaslo()))){
-            ContextUtils.emitInternationalizedMessage("utworzKlientaForm:passwordRepeat", "passwords.not.matching");
+        if (!(hasloPowtorz.equals(konto.getHaslo()))) {
+            ContextUtils.emitInternationalizedMessage("utworzPacjentaForm:passwordRepeat", "passwords.not.matching");
             return null;
         }
-            
+
         return kontoSession.utworzPacjenta(konto);
     }
 
 }
-

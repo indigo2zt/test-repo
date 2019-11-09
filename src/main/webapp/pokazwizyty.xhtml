@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./szablonAplikacji.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+
+    <ui:define name="content">
+        <h1>Pokaz wizyty</h1>
+        <h:form>
+            <p:dataTable var="wizytaPK" value="#{WizytaBean.listaWizyt}" selectionMode="single" selection="#{WizytaBean.wizyta}" rowKey="#{wizytaPK.wizytaPK}">
+                <p:column headerText="lekarz">
+                    <h:outputText value="#{wizytaPK.wizytaPK.lekarz}" />
+                </p:column>
+
+                <p:column headerText="pacjent">
+                    <h:outputText value="#{wizytaPK.wizytaPK.pacjent}" />
+                </p:column>
+
+                <p:column headerText="data">
+                    <h:outputText value="#{wizytaPK.wizytaPK.data}" />
+                </p:column>
+
+                <p:column headerText="pokoj">
+                    <h:outputText value="#{wizytaPK.pokoj}" />
+                </p:column>
+
+                <p:column headerText="Akcje">
+                    <p:commandButton value="Usuń" action="#{WizytaBean.usun}" />
+                    <p:commandButton value="Edytuj" action="#{WizytaBean.usun}"/>
+                    <!--<p:commandButton value="Dodaj" action="Dodaj"/>-->
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

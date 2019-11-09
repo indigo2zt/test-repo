@@ -18,14 +18,15 @@ import javax.validation.constraints.Size;
 @Table(name = "DanePracownik")
 @DiscriminatorValue("PRACOWNIK")
 @NamedQueries({
-    @NamedQuery(name = "Pracownik.findAll", query = "SELECT d FROM Pracownik d"),
+    @NamedQuery(name = "Pracownik.findAll", query = "SELECT d FROM Pracownik d")
+    ,
     @NamedQuery(name = "Pracownik.findByIntercom", query = "SELECT d FROM Pracownik d WHERE d.intercom = :intercom")
 })
 public class Pracownik extends Konto implements Serializable {
 
     @NotNull
-    @Size(message="{constraint.string.length.toolong}")
-    @Column(name = "intercom", unique=true, nullable=false, length=12)
+    @Size(message = "{constraint.string.length.toolong}")
+    @Column(name = "intercom", unique = true, nullable = false, length = 12)
     private String intercom;
 
     public Pracownik() {
@@ -39,4 +40,3 @@ public class Pracownik extends Konto implements Serializable {
         this.intercom = intercom;
     }
 }
-

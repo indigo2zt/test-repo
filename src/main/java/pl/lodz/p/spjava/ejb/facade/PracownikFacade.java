@@ -31,5 +31,5 @@ public class PracownikFacade extends AbstractFacade<Pracownik> {
     public PracownikFacade() {
         super(Pracownik.class);
     }
-    
+
 }

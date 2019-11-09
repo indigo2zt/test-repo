@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+    template="../templates/nowyszablonaplikacji.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:p="http://primefaces.org/ui">
+    <p:menu> rendered="#{request.isUserInRole("Administrator")}"</p:menu>
+    <p:submenu label="KONTA">
+        <p:menuitem value="DODAJ KONTA" outcome="wszystkiekonta"/>
+        <p:menuitem value="DODAJ ADMINA" outcome="utworzAdmina"/>
+        <p:menuitem value="DODAJ LEKARZA" outcome="utworzDoktora"/>
+        <p:menuitem value="DODAJ PACJENTA" outcome="utworzPacjenta"/>
+        <p:menuitem value="DODAJ PRACOWNIKA" outcome="utworzPracownika"/>
+    </p:submenu>
+    <p:menu> rendered="#{request.isUserInRole("Pacjent")}"</p:menu>
+
+    <p:menuitem value="ZAMOW WIZYTE" outcome="znajdzWizyte" />
+    <p:menuitem value="MOJE WIZYTY" outcome="mojewizyty" />
+    <p:menu> rendered="#{request.isUserInRole("Lekarz")}"</p:menu>
+    <p:menuitem value="POKAZ MOJ HARMONOGRAM" outcome="pokazmojdziennyharmonogram" />
+    <p:menuitem value="POKAZ MOJ HARMONOGRAM" outcome="pokazmojdziennyharmonogram" /> 
+
+
+    <p:menu> rendered="#{request.isUserInRole("Pracownik")}"</p:menu>
+    <p:submenu label="KATEGORIE">
+        <p:menuitem value="WSZYSTKIE KATEGORIE" outcome="wszystkiekategorie" />
+        <p:menuitem value="DODAJ KATEGORIE" outcome="utworzkategorie"/>
+    </p:submenu>
+    <p:submenu label="POKOJE">
+        <p:menuitem value="WSZYSTKIE POKOJE" outcome="wszystkiepokoje"/>
+        <p:menuitem value="DODAJ POKOJ" outcome="dodajpokoj"/>
+    </p:submenu>
+    <p:submenu label="WIZYTY">
+        <p:menuitem value="WSZYSTKIE WIZYTY" outcome="wszystkiewizyty"/>
+        <p:menuitem value="UTWORZ HARMONOGRAM" outcome="utworzharmonogram"/>
+    </p:submenu>
+    <p:submenu label="SERWIS PACJENTA">
+        <p:menuitem value="ZAREJESTRUJ PACJENTA" outcome="wszystkiekategorie" />
+        <p:menuitem value="POTWIERDZ REJESTRACJE" outcome="wszystkiekategorie" />
+    </p:submenu>
+</html>
+

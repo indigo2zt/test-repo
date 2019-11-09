@@ -1,23 +1,32 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="./szablonAplikacji.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
         <h1>Edytujlekarza</h1>
         <h:form>
-            <table>
-                <tr><td>Imie</td><td><h:inputText id="imie"
-                value="#{LekarzBean.lekarz.imie}" required="true"  /></td></tr>
-                <tr><td>Nazwisko</td<td><h:inputText id="nazwisko"  
-                value="#{LekarzBean.lekarz.nazwisko}" required="true" /></td></tr>
-                 <tr><td>Nazwisko</td<td><h:inputText id="specjalizacja"  
-                value="#{LekarzBean.lekarz.specjalizacja}" required="true" /></td></tr>
-                 
-            </table>
+            <p:dataTable>
+
+                <p:column headerText="imie">
+                    <h:outputText value="#{LekarzBean.lekarz.imie}"> 
+                    </h:outputText>
+                </p:column>
+
+                <p:column headerText="nazwisko">
+                    <h:outputText value="#{LekarzBean.lekarz.nazwisko}">
+                    </h:outputText>
+                </p:column>
+
+                <p:column headerText="specjalizacja">
+                    <h:outputText value="#{LekarzBean.lekarz.specjalizacja}">
+                    </h:outputText>
+                </p:column>
+            </p:dataTable>
         </h:form>
     </ui:define>
 

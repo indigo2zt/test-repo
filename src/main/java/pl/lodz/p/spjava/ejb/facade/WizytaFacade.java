@@ -31,5 +31,5 @@ public class WizytaFacade extends AbstractFacade<Wizyta> {
     public WizytaFacade() {
         super(Wizyta.class);
     }
-    
+
 }

@@ -21,7 +21,7 @@ public class PrzychodniaUsunBean implements Serializable {
 
     @Inject
     private PrzychodniaFacade facade;
-    
+
     public Przychodnia getPrzychodnia() {
         return przychodnia;
     }
@@ -32,12 +32,12 @@ public class PrzychodniaUsunBean implements Serializable {
 
     @PostConstruct
     public void reset() {
-       
+
     }
 
-    public String usunPrzychodnie(){
+    public String usunPrzychodnie() {
         facade.remove(przychodnia);
         return "";
     }
-    
+
 }

@@ -23,8 +23,8 @@ public class AdministratorEndpoint {
 
     @Inject
     private AdministratorFacade administratorFacade;
-    
-    public void edit(Administrator administrator){
+
+    public void edit(Administrator administrator) {
         administratorFacade.edit(administrator);
     }
 
@@ -41,6 +41,6 @@ public class AdministratorEndpoint {
     }
 }
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+// Add business logic below. (Right-click in editor and choose
+// "Insert Code > Add Business Method")
 

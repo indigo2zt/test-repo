@@ -11,8 +11,8 @@ import javax.servlet.ServletContextListener;
  *
  * @author java
  */
-public class PrzychodnieContextListener  implements ServletContextListener {
-    
+public class PrzychodnieContextListener implements ServletContextListener {
+
 //    public void contextInitialized(ServletContextEvent sce) {
 //        DBManager.getManager().createEntityManagerFactory();
 }
@@ -20,5 +20,4 @@ public class PrzychodnieContextListener  implements ServletContextListener {
 //    public void contextDestroyed(ServletContextEvent sce) {
 //        DBManager.getManager().EntityManagerFactory();
 //    }
-
 

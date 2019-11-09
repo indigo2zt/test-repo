@@ -20,11 +20,11 @@ import pl.lodz.p.spjava.entity.Pacjent;
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class PacjentEndpoint {
-    
+
     @Inject
     private PacjentFacade pacjentFacade;
-    
-    public void edit(Pacjent pacjent){
+
+    public void edit(Pacjent pacjent) {
         pacjentFacade.edit(pacjent);
     }
 
@@ -41,6 +41,5 @@ public class PacjentEndpoint {
     }
 }
 
-
-    // Add business logic below. (Right-click in editor and choose
+// Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

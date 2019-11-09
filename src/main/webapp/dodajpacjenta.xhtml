@@ -8,8 +8,9 @@
                 xmlns:p="http://primefaces.org/ui">
     <ui:define name="content"> 
         <h1>Dodaj pacjenta</h1>
+<!--        <ui:param name="pageBean" value="#{UtworzPacjentaPageBean}" />-->
         <h:form>
-            <table>                            
+            <table> 
                 <tr><td>Imie</td><td><h:inputText id="imie"
                                                   value="#{PacjentBean.pacjent.imie}" required="true" /></td></tr>
                 <tr><td>Nazwisko</td><td><h:inputText id="nazwisko"
@@ -20,13 +21,13 @@
                 <td>Przychodnia</td>
                 <td>
                     <p:selectOneMenu id="przychodnia" value="#{PacjentBean.selectedPrzychodnia}" required="true">
-                            <f:selectItems value="#{PacjentBean.przychodnie}"
-                                           var="przychodnia"
-                                           itemValue="#{przychodnia.id}"
-                                           itemLabel="#{przychodnia.nazwa}" />
-                        </p:selectOneMenu>
+                        <f:selectItems value="#{PacjentBean.przychodnie}"
+                                       var="przychodnia"
+                                       itemValue="#{przychodnia.id}"
+                                       itemLabel="#{przychodnia.nazwa}" />
+                    </p:selectOneMenu>
                 </td>
-                
+
                 <tr><td></td><td><h:commandButton action="#{PacjentBean.dodaj}" 
                                                   value="Dodaj" /></td></tr>
             </table>

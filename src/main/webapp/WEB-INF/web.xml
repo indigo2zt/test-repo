@@ -8,11 +8,20 @@
         <param-name>facelets.SKIP_COMMENTS</param-name>
         <param-value>true</param-value>
     </context-param>
-        <context-param>
+    <context-param>
         <param-name>javax.faces.facelets.SKIP_COMMENTS</param-name>
         <param-value>true</param-value>
     </context-param>
 
+
+    <context-param>
+        <param-name>primefaces.FONT_AWESOME</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.MOVE_SCRIPTS_TO_BOTTOM</param-name>
+        <param-value>true</param-value>
+    </context-param>
 
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
@@ -25,31 +34,58 @@
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            10
+            15
         </session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
-    <security-role>
-        <description/>
-        <role-name>Administrator</role-name>
-    </security-role>
+    <security-constraint>
+        <display-name>LoginPage</display-name>
+        <web-resource-collection>
+            <web-resource-name>LoginPage</web-resource-name>
+            <description/>
+            <url-pattern>/faces/login/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <user-data-constraint>
+            <description/>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Konta</display-name>
+        <web-resource-collection>
+            <web-resource-name>Konta</web-resource-name>
+            <description/>
+            <url-pattern>/faces/konto/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Administrator</role-name>
+            <role-name>Pracownik</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <description/>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>UserRegistration</display-name>
+        <web-resource-collection>
+            <web-resource-name>Konta</web-resource-name>
+            <description/>
+            <url-pattern>/faces/konto/rejestrujPacjenta.xhtml</url-pattern>
+            <url-pattern>/faces/konto/rejestrujPacjentaPotwierdz.xhtml</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <description/>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
     <security-role>
         <description/>
         <role-name>Pacjent</role-name>
     </security-role>
-    <security-role>
-        <description/>
-        <role-name>Pracownik</role-name>
-    </security-role>
-    <security-role>
-        <description/>
-        <role-name>Lekarz</role-name>
-    </security-role>
-   
-    <!--    <listener>
-        <description>ServletContextListener</description>
-        <listener-class>pl.lodz.p.sp.java.listeners.PrzychodnieContextListener</listener-class>
-    </listener>-->
 </web-app>
