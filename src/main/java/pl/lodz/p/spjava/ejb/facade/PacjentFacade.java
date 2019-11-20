@@ -31,5 +31,5 @@ public class PacjentFacade extends AbstractFacade<Pacjent> {
     public PacjentFacade() {
         super(Pacjent.class);
     }
-
+    
 }

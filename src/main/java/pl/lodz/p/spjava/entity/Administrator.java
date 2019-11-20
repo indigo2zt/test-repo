@@ -9,6 +9,7 @@ package pl.lodz.p.spjava.entity;
  *
  * @author java
  */
+
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -21,15 +22,14 @@ import javax.validation.constraints.Size;
 @Table(name = "DaneAdministrator")
 @DiscriminatorValue("ADMIN")
 @NamedQueries({
-    @NamedQuery(name = "Administrator.findAll", query = "SELECT d FROM Administrator d")
-    ,
+    @NamedQuery(name = "Administrator.findAll", query = "SELECT d FROM Administrator d"),
     @NamedQuery(name = "Administrator.findByAlarmNumber", query = "SELECT d FROM Administrator d WHERE d.alarmNumber = :alarmNumber")
 })
 public class Administrator extends Konto implements Serializable {
 
     @NotNull
-    @Size(message = "{constraint.string.length.toolong}")
-    @Column(name = "AlarmNumber", unique = true, nullable = false, length = 12)
+    @Size(message="{constraint.string.length.toolong}")
+    @Column(name = "AlarmNumber", unique=true, nullable=false, length=12)
     private String alarmNumber;
 
     public Administrator() {

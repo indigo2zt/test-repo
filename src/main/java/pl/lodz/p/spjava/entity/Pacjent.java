@@ -20,7 +20,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -45,18 +44,20 @@ public class Pacjent implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Pacjent_ID_gen")
-    @SequenceGenerator(name = "Pacjent_ID_gen", sequenceName = "PRZYCHODNIA.Pacjent_Seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID")
+    @NotNull
     private Integer id;
     @Basic(optional = false)
     @Column(name = "IMIE", nullable = false, length = 50)
     private String imie;
     @Basic(optional = false)
+    @Size(min = 1)
     @Column(name = "NAZWISKO", nullable = false, length = 50)
     private String nazwisko;
     @Basic(optional = false)
+    @Size(min = 1)
     @Column(name = "PESEL", nullable = false, length = 11)
     private String pesel;
     @JoinColumn(name = "PRZYCHODNIA", nullable = false)
@@ -168,5 +169,5 @@ public class Pacjent implements Serializable {
     public void setHaslo(String wyliczSkrotHasla) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
 }

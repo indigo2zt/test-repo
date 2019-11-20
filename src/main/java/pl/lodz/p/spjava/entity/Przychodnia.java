@@ -46,30 +46,30 @@ public class Przychodnia implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Basic(optional = true)
-    //@Size(min = 1, max = 100)
+    @Basic(optional = false)
+    @Size(min = 1, max = 100)
     @Column(name = "NAZWA")
     private String nazwa;
 
-    @Basic(optional = true)
-    //@Size(min = 1)
+    @Basic(optional = false)
+    @Size(min = 1)
     @Column(name = "OPIS", length = 100, nullable = false)
     private String opis;
 
-    //@Size(max = 150)
+    @Size(max = 150)
     @Column(name = "ADRES")
     private String adres;
 
-    //@Size(max = 30)
+    @Size(max = 30)
     @Column(name = "KONTAKT")
     private String kontakt;
-
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Pacjent> pacjentSet;
-
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Lekarz> lekarzList;
-
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Pacjent> pacjentList;
 
@@ -139,7 +139,7 @@ public class Przychodnia implements Serializable {
     public Set<Lekarz> getLekarzList() {
         return lekarzList;
     }
-
+    
     @XmlTransient
     public Set<Pacjent> getPacjentList() {
         return pacjentList;

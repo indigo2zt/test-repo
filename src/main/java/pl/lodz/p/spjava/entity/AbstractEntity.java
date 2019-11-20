@@ -15,7 +15,7 @@ import javax.persistence.Version;
  */
 @MappedSuperclass
 public abstract class AbstractEntity {
-
+    
     protected static final long serialVersionUID = 1L;
 
     // Samego klucza głównego nie można dziedziczyć ze względu na stosowanie różnych generatorów tabelowych w różnych encjach.
@@ -25,7 +25,7 @@ public abstract class AbstractEntity {
     protected abstract Object getBusinessKey();
 
     @Version
-    @Column(name = "wersja", nullable = false)
+    @Column(name="wersja", nullable = false)
     private int wersja;
 
     @Override
@@ -38,9 +38,9 @@ public abstract class AbstractEntity {
         if (null == obj) {
             return false;
         }
-
-        if (this.getClass().isAssignableFrom(obj.getClass())) {
-            return this.getBusinessKey().equals(((AbstractEntity) obj).getBusinessKey());
+        
+        if(this.getClass().isAssignableFrom(obj.getClass())) {
+            return this.getBusinessKey().equals(((AbstractEntity)obj).getBusinessKey());
         } else {
             return false;
         }
@@ -49,6 +49,6 @@ public abstract class AbstractEntity {
 
     @Override
     public int hashCode() {
-        return getBusinessKey().hashCode();
+        return getBusinessKey().hashCode(); 
     }
 }

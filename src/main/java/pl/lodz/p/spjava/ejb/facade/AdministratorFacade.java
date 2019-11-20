@@ -31,5 +31,5 @@ public class AdministratorFacade extends AbstractFacade<Administrator> {
     public AdministratorFacade() {
         super(Administrator.class);
     }
-
+    
 }

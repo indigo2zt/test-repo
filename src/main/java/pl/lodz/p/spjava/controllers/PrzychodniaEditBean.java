@@ -27,7 +27,7 @@ public class PrzychodniaEditBean implements Serializable {
 
     @Inject
     private PrzychodniaEndpoint przychodniaEndpoint;
-
+    
     public Przychodnia getPrzychodnia() {
         return przychodnia;
     }
@@ -41,9 +41,9 @@ public class PrzychodniaEditBean implements Serializable {
         przychodnia = (Przychodnia) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("selectPrzychodnia");
     }
 
-    public String edytujPrzychodnie() {
+    public String edytujPrzychodnie(){
         przychodniaEndpoint.edit(przychodnia);
         return "ListaPrzychodni";
     }
-
+    
 }

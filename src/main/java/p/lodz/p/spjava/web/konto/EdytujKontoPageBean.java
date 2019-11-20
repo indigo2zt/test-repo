@@ -20,10 +20,10 @@ import pl.lodz.p.spjava.web.utils.KontoUtils;
 @Named("edytujKontoPageBean")
 @RequestScoped
 public class EdytujKontoPageBean {
-
+    
     public EdytujKontoPageBean() {
     }
-
+    
     @Inject
     private KontoSession kontoSession;
 
@@ -32,12 +32,12 @@ public class EdytujKontoPageBean {
         konto = kontoSession.getKontoEdytuj();
     }
 
-    private Konto konto = new Konto();
+    private Konto konto =  new Konto();
 
     public Konto getKonto() {
         return konto;
     }
-
+    
     public boolean isPacjent() {
         return KontoUtils.isPacjent(konto);
     }
@@ -49,7 +49,7 @@ public class EdytujKontoPageBean {
     public boolean isAdministrator() {
         return KontoUtils.isAdministrator(konto);
     }
-
+    
     public String zapiszKonto() throws AppBaseException {
         return kontoSession.zapiszKontoPoEdycji(konto);
     }

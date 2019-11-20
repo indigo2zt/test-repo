@@ -6,8 +6,8 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href ="./resources/css/default.css" rel="stylesheet" type="text/css"/>
-        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css"/>
+         <link href ="./resources/css/default.css" rel="stylesheet" type="text/css"/>
+         <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css"/>
         <title>System przychodni lekarskich</title>
     </h:head>
 
@@ -18,7 +18,6 @@
                 <li><h:outputLink value="dodajprzychodnie.xhtml">Dodaj przychodnie</h:outputLink></li>
                 <li><h:outputLink value="pokazprzychodnie.xhtml">Pokaz przychodnie</h:outputLink></li>
                 <li><h:outputLink value="edytujprzychodnie.xhtml">Edytuj przychodnie</h:outputLink></li>
-                <li><h:outputLink value="usunprzychodnie.xhtml">Usun przychodnie</h:outputLink></li>
                 <li><h:outputLink value="dodajlekarza.xhtml">Dodaj lekarza</h:outputLink></li>
                 <li><h:outputLink value="pokazlekarzy.xhtml">Pokaz lekarzy</h:outputLink></li>
                 <li><h:outputLink value="edytujlekarza.xhtml">Edytuj lekarza</h:outputLink></li>
@@ -26,32 +25,13 @@
                 <li><h:outputLink value="pokazwizyty.xhtml">Pokaz wizytę</h:outputLink></li>
                 <li><h:outputLink value="dodajpacjenta.xhtml">Dodaj pacjenta</h:outputLink></li>
                 <li><h:outputLink value="pokazpacjentow.xhtml">Pokaz pacjenta</h:outputLink></li>
-                <li><h:outputLink value="../konto/utworzPracownika.xhtml">Utworz pracownika</h:outputLink></li>
+<!--                 <li><h:outputLink value="nowymenu.xhtml">POkaz pacjenta</h:outputLink></li>-->
+                                
+
+                
+                
             </ul>
         </div>
-        <!--                 <h:form id="menu">
-                         <ul class="sidebar-menu tree" data-widget="tree">
-                    <li><p:link href="../main/index.xhtml" >${msg["main.page"]}</p:link></li>
-                    <li><p:link href="../konto/rejestrujKlienta.xhtml" >${msg["menu.register"]}</p:link></li>
-                    <f:subview id="konto" rendered="#{request.isUserInRole('Administrator')}">
-                        <li class="header">${msg["menu.accounts"]}</li>
-                        <ul>
-                        <li><h:outputLink value="../main/index.xhtml" >${msg["main.page"]}</h:outputLink></li>
-                    <li><h:outputLink value="../konto/rejestrujPacjenta.xhtml" >${msg["menu.register"]}</h:outputLink></li>
-                    <li>${msg["menu.konto"]}</li>
-                    <ul>
-                        <li><h:outputLink value="../konto/listaKont.xhtml" >${msg["menu.accounts.list"]}</h:outputLink></li>
-                        <li><h:outputLink value="../konto/utworzPacjenta.xhtml" >${msg["menu.accounts.createclient"]}</h:outputLink></li>
-                        <li><h:outputLink value="../konto/utworzPracownika.xhtml" >${msg["menu.accounts.createemployee"]}</h:outputLink></li>
-                        <li><h:outputLink value="../konto/utworzAdministratora.xhtml" >${msg["menu.accounts.createadmin"]}</h:outputLink></li>
-                    </ul>
-                    <li>${kontoSession.mojLogin}</li>
-                    <ul>
-                        <li><h:outputLink value="../konto/zmienMojeHaslo.xhtml" >${msg["menu.accounts.changePassword"]}</h:outputLink></li>
-                        <li><h:outputLink value="../konto/szczegolyMojegoKonta.xhtml" >${msg["menu.accounts.details"]}</h:outputLink></li>
-                        <li><h:commandLink action="#{kontoSession.resetujSesje()}" value="${msg['menu.closeSession']}" /></li>
-                    </ul>-->
-
         <div id="content" class="left_content">
             <ui:insert name="content"></ui:insert>
             <h:messages infoStyle ="color:green" layout="table" />

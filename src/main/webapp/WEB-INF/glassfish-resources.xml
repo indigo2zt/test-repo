@@ -7,7 +7,7 @@
         <property name="databaseName" value="Przychodnia"/>
         <property name="User" value="Przychodnia"/>
         <property name="Password" value="Przychodnia"/>
-        <property name="URL" value="jdbc:derby://localhost:1527/Przychodnia"/>
+        <property name="URL" value="jdbc:derby://localhost:1527/Przychodnia1"/>
         <property name="driverClass" value="org.apache.derby.jdbc.ClientDriver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="java:app/jdbc/PrzychodniaDS" object-type="user" pool-name="derby_net_Przychodnia_PrzychodniaPool"/>

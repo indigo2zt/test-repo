@@ -9,14 +9,15 @@ package pl.lodz.p.spjava.exception;
  *
  * @author java
  */
+
 import javax.ejb.ApplicationException;
 
 /**
  * Klasa bazowego wyjątku aplikacyjnego
  */
-@ApplicationException(rollback = true)
+@ApplicationException(rollback=true)
 abstract public class AppBaseException extends Exception {
-
+    
     protected AppBaseException(String message, Throwable cause) {
         super(message, cause);
     }
@@ -24,5 +25,5 @@ abstract public class AppBaseException extends Exception {
     protected AppBaseException(String message) {
         super(message);
     }
-
+    
 }

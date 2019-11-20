@@ -27,24 +27,25 @@ import pl.lodz.p.spjava.web.utils.KontoUtils;
  *
  * @author java
  */
+
 @Stateful
 @LocalBean
 @Interceptors(LoggingInterceptor.class)
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class KontoEndpoint extends AbstractEndpoint implements SessionSynchronization {
-
+    
     @Inject
     private KontoFacade kontoFacade;
-
+    
     @Inject
     private PacjentFacade pacjentFacade;
-
+    
     @Inject
     private PracownikFacade pracownikFacade;
-
+    
     @Inject
     private AdministratorFacade administratorFacade;
-
+    
     private Konto kontoStan;
 
     public Konto pobierzMojeKonto() {
@@ -69,39 +70,39 @@ public class KontoEndpoint extends AbstractEndpoint implements SessionSynchroniz
         pacjent.setHaslo(KontoUtils.wyliczSkrotHasla((String) pacjent.getHaslo()));
         pacjentFacade.create(pacjent);
     }
-
-    public void aktywujKonto(Konto konto) {
+    
+    public void aktywujKonto(Konto konto){
         Konto k = kontoFacade.find(konto.getId());
         k.setAktywne(true);
     }
-
-    public void deaktywujKonto(Konto konto) {
+    
+    public void deaktywujKonto(Konto konto){
         Konto k = kontoFacade.find(konto.getId());
         k.setAktywne(false);
     }
-
-    public void potwierdzKonto(Konto konto) {
+    
+    public void potwierdzKonto(Konto konto){
         Konto k = kontoFacade.find(konto.getId());
         k.setPotwierdzone(true);
     }
-
+    
     public List<Konto> pobierzWszystkieKonta() {
         return kontoFacade.findAll();
     }
-
+    
     public List<Konto> dopasujKonta(String loginWzor, String imieWzor, String nazwiskoWzor, String emailWzor) {
         return kontoFacade.dopasujKonta(loginWzor, imieWzor, nazwiskoWzor, emailWzor);
     }
-
+    
     public Konto znajdzLogin(String login) {
         return kontoFacade.znajdzLogin(login);
     }
-
+    
     public Konto pobierzKontoDoEdycji(Konto konto) {
         kontoStan = znajdzLogin(konto.getLogin());
         return kontoStan;
     }
-
+    
     public void zapiszKontoPoEdycji(Konto konto) throws AppBaseException {
         if (null == kontoStan) {
             throw new IllegalArgumentException("Brak wczytanego konta do modyfikacji");
@@ -114,17 +115,16 @@ public class KontoEndpoint extends AbstractEndpoint implements SessionSynchroniz
         //wykonej merge() na encji Konto, aby weszła ona w stan zarządzany przez obecny kontekst trwalości
         kontoFacade.edit(kontoStan);
         //usuń stan konta po zakończonej operacji - unika błędnego wielokrotnego wykonania
-        kontoStan = null;
+        kontoStan=null;
     }
-
+    
     public void zmienMojeHaslo(String stare, String nowe) {
         Konto mojeKonto = pobierzMojeKonto();
-        if (!mojeKonto.getHaslo().equals(KontoUtils.wyliczSkrotHasla(stare))) {
+        if(!mojeKonto.getHaslo().equals(KontoUtils.wyliczSkrotHasla(stare)))
             throw new IllegalArgumentException("Podane dotychczasowe hasło nie zgadza się");
-        }
         mojeKonto.setHaslo(KontoUtils.wyliczSkrotHasla(nowe));
     }
-
+    
     public void zmienHaslo(Konto konto, String haslo) {
         Konto k = kontoFacade.find(konto.getId());
         k.setHaslo(KontoUtils.wyliczSkrotHasla(haslo));

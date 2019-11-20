@@ -23,8 +23,8 @@ public class LekarzEndpoint {
 
     @Inject
     private LekarzFacade lekarzFacade;
-
-    public void edit(Lekarz lekarz) {
+    
+    public void edit(Lekarz lekarz){
         lekarzFacade.edit(lekarz);
     }
 

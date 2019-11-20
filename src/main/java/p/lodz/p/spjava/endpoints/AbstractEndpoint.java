@@ -22,7 +22,7 @@ abstract public class AbstractEndpoint {
 
     @Resource
     protected SessionContext sctx;
-
+    
     private String transactionId;
 
     // Przywróć "wykomentowane" linie aby uzyskać prostą implementację SessionSynchronization
@@ -39,7 +39,7 @@ abstract public class AbstractEndpoint {
     }
 
     public void afterCompletion(boolean committed) throws EJBException {
-        LOGGER.log(Level.INFO, "Transakcja TXid={0} zakończona w {1} poprzez {3}, tożsamość {2}",
+        LOGGER.log(Level.INFO, "Transakcja TXid={0} zakończona w {1} poprzez {3}, tożsamość {2}", 
                 new Object[]{transactionId, this.getClass().getName(), sctx.getCallerPrincipal().getName(),
                     committed ? "ZATWIERDZENIE" : "ODWOŁANIE"});
     }

@@ -5,7 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml">
-
+                
 
     <ui:define name="content">
         <h1>Dodaj wizyte</h1>
@@ -15,8 +15,8 @@
                     <td>Wybierz lekarza</td>
                     <td>
                         <h:selectOneMenu id="lekarz"
-                                         value="#{WizytaBean.wizyta.wizytaPK.lekarz}"
-                                         required="true">
+                        value="#{WizytaBean.wizyta.wizytaPK.lekarz}"
+                        required="true">
                             <f:selectItems
                                 value="#{PrzychodniaBean.przychodnia.lekarzList}"
                                 var="lekarz" itemValue="#{lekarz.id}"
@@ -28,8 +28,8 @@
                     <td>Wybierz pacjenta</td>
                     <td>
                         <h:selectOneMenu id="pacjent"
-                                         value="#{WizytaBean.wizyta.wizytaPK.pacjent}"
-                                         required="true">
+                         value="#{WizytaBean.wizyta.wizytaPK.pacjent}"
+                         required="true">
                             <f:selectItems
                                 value="#{PrzychodniaBean.przychodnia.pacjentList}"
                                 var="pacjent" itemValue="#{pacjent.id}"
@@ -42,12 +42,12 @@
                         Wpisz date i czas (w formacie RRRR-MM-DD GG:MM:SS):
                     </td>
                     <td>
-                        <h:inputText value="#{WizytaBean.wizyta.wizytaPK.data}"
-                                     required="true">
-                            <f:convertDateTime timeZone="GMT+2" type="both" />
-                        </h:inputText>
+                    <h:inputText value="#{WizytaBean.wizyta.wizytaPK.data}"
+                                 required="true">
+                        <f:convertDateTime timeZone="GMT+2" type="both" />
+                    </h:inputText>
                     </td>
-
+                        
                 </tr>
                 <tr>
                     <td>Wpisz numer pokoju</td>
@@ -58,9 +58,10 @@
                 </tr>
                 <tr>
                     <td><h:commandButton action="#{WizytaBean.dodaj}"
-                                         value="Dodaj"  /></td>
+                                             value="Dodaj"  /></td>
                 </tr>
-            </table>
+                </table>
         </h:form>
-    </ui:define>
+        </ui:define>
 </ui:composition>
+                

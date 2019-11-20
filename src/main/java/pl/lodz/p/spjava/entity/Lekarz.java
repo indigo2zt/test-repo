@@ -47,12 +47,15 @@ public class Lekarz implements Serializable {
     @Column(name = "ID", nullable = false)
     private Integer id;
     @Basic(optional = false)
+    @Size(min = 1)
     @Column(name = "IMIE", nullable = false, length = 50)
     private String imie;
     @Basic(optional = false)
+    @Size(min = 1)
     @Column(name = "NAZWISKO", nullable = false, length = 50)
     private String nazwisko;
     @Basic(optional = false)
+    @Size(min = 1)
     @Column(name = "SPECJALIZACJA", nullable = false, length = 50)
     private String specjalizacja;
     @JoinColumn(name = "PRZYCHODNIA", referencedColumnName = "ID", nullable = false)
@@ -148,5 +151,5 @@ public class Lekarz implements Serializable {
     public String toString() {
         return "pl.lodz.p.spjava.entity.Lekarz[ id=" + id + " ]";
     }
-
+    
 }

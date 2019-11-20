@@ -9,6 +9,8 @@ package p.lodz.p.spjava.web.konto;
  *
  * @author java
  */
+ 
+
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;

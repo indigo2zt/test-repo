@@ -8,14 +8,14 @@
                 xmlns:p="http://primefaces.org/ui">
     <ui:define name="content">
         <h1>Lista pacjentow</h1>
-        <h:form>
-            <p:dataTable id="tabele" var="pacjent" value="#{PacjentBean.pacjenci}" resizableColumns="true" style="margin-bottom:20px"
-                         selectionMode="single" selection="#{PacjentBean.selectPacjent}" rowKey="#{pacjent.id}">
+          <h:form>
+              <p:dataTable  var="pacjent" value="#{PacjentBean.pacjenci}" resizableColumns="true" style="margin-bottom:20px"
+                             selectionMode="single" selection="#{PacjentBean.selectPacjent}" rowKey="#{pacjent.id}">
                 <p:column headerText="id">
                     <h:outputText value="#{pacjent.id}" />
                 </p:column>
-
-                <p:column headerText="Imie">
+                  
+                   <p:column headerText="Imie">
                     <h:outputText value="#{pacjent.imie}" />
                 </p:column>
 
@@ -23,23 +23,18 @@
                 <p:column headerText="Nazwisko">
                     <h:outputText value="#{pacjent.nazwisko}" />
                 </p:column>
-
-                <p:column headerText="Pesel">
+                  
+                   <p:column headerText="Pesel">
                     <h:outputText value="#{pacjent.pesel}" />
                 </p:column>
+                  
+                   <p:column headerText="Akcje">
+                    <p:commandButton value="EDYTUJ"  action="#{PacjentBean.edytuj()}" />
+                        <f:attribute name="selectPacjent" value="#{PacjentBean.pacjenci}" />
+                    <p:commandButton value="USUŃ"  action="#{PacjentBean.usun()}" />
+                        <f:attribute name="selectPacjent" value="#{PacjentBean.pacjenci}" />
+                </p:column>
             </p:dataTable>
-
-            <!--                   <p:column headerText="Akcje">-->
-            <p:commandButton value="EDYTUJ"  action="#{PacjentBean.edytuj}" actionListener="#{PacjentBean.usun}" update="tabele"/>
-<!--                    <f:attribute name="selectPacjent" value="#{PacjentBean.pacjent}" />-->
-            <p:commandButton value="USUN"  action="#{PacjentBean.usun}" />
-<!--                    <f:attribute name="selectPacjent" value="#{PacjentBean.pacjent}" />-->
-
-            <p:commandButton value="DODAJ"  action="#{PacjentBean.dodaj}" />
-            <!--                </p:column>-->
-
-        </h:form>
-        <h:form>
-        </h:form>
+              </h:form>
     </ui:define>
 </ui:composition>

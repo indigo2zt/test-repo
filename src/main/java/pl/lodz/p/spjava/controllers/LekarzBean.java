@@ -1,3 +1,4 @@
+
 package pl.lodz.p.spjava.controllers;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade;
 import pl.lodz.p.spjava.entity.Lekarz;
 import pl.lodz.p.spjava.entity.Przychodnia;
 
+
 /**
  *
  * @author java
@@ -26,7 +28,7 @@ import pl.lodz.p.spjava.entity.Przychodnia;
 public class LekarzBean implements Serializable {
 
     private Lekarz lekarz = new Lekarz();
-
+   
     @Inject
     private LekarzFacade lekarzFacade;//tego nie powinno byc
 
@@ -40,10 +42,6 @@ public class LekarzBean implements Serializable {
 
     public List<Przychodnia> getPrzychodnie() {
         return przychodnie;
-    }
-
-    public void getLekarzById(int lekarzId) {
-        lekarz = lekarzFacade.find(lekarzId);
     }
 
     public void setPrzychodnie(List<Przychodnia> przychodnie) {
@@ -96,15 +94,7 @@ public class LekarzBean implements Serializable {
     public void init() {
         lekarze = lekarzFacade.findAll();
         przychodnie.addAll(przychodniaFacade.findAll());//uzyc endpointa
-        selectedPrzychodnia = 1;
-        initLekarz();
-
-    }
-
-    private void initLekarz() {
-        if (FacesContext.getCurrentInstance().getExternalContext().getFlash().get("selectLekarz") != null) {
-            this.lekarz = (Lekarz) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("selectLekarz");
-        }
+        selectedPrzychodnia = 0;
 
     }
 
@@ -117,7 +107,7 @@ public class LekarzBean implements Serializable {
     public String edytuj() {
         if (selectLekarz != null) {
             FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectLekarz", selectLekarz);
-            return "Edytuj Lekarza";
+            return "EDYTUJ";
         }
 
         return "";

@@ -7,7 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Przychodnielekarskie</name>
+    <name>Przychodniestare</name>
    
 
     <properties>
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>5.0</version>
+            <version>7.0</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -95,12 +95,5 @@
             </plugin>-->
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <url>http://repository.primefaces.org/</url>
-            <id>PrimeFaces-maven-lib</id>
-            <layout>default</layout>
-            <name>Repository for library PrimeFaces-maven-lib</name>
-        </repository>
-    </repositories>
+
 </project>

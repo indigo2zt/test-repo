@@ -17,18 +17,17 @@ import pl.lodz.p.spjava.entity.Przychodnia;
  * @author java
  */
 public class PrzychodniaConverter implements Converter {
-
     public String getAsString(FacesContext context, UIComponent component, Object modelValue) {
-        if (modelValue == null) {
-            return "";
-        }
+    if (modelValue == null) {
+        return "";
+    }
 
-        if (modelValue instanceof Przychodnia) {
-            return String.valueOf(((Przychodnia) modelValue).getId());
-        } else {
-            throw new ConverterException(new FacesMessage(modelValue + " is not a valid Przychodnia"));
-        }
-
+    if (modelValue instanceof Przychodnia) {
+        return String.valueOf(((Przychodnia) modelValue).getId());
+    } else {
+        throw new ConverterException(new FacesMessage(modelValue + " is not a valid Przychodnia"));
+    }
+    
     }
 
     @Override

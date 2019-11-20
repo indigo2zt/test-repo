@@ -64,7 +64,6 @@ public class PrzychodniaBean implements Serializable {
     @PostConstruct
     public void init() {
         przychodnie = przychodniaEndpoint.findAll();
-        przychodnia = przychodnie.get(0);
 
     }
 
@@ -73,19 +72,24 @@ public class PrzychodniaBean implements Serializable {
             FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectPrzychodnia", selectPrzychodnia);
             return "Edytuj";
         }
-
+        
         return "";
 
     }
 
     public void usun() {
-
+   
         this.przychodniaEndpoint.remove(selectPrzychodnia);
-        przychodnie = przychodniaEndpoint.findAll();
+                przychodnie = przychodniaEndpoint.findAll();
 
-        //  return "";
+       
+       
+       
+      //  return "";
+
     }
-
+    
+  
 //ychodnia
 //    public List<Przychodnia> getLista() {
 //        EntityManager em = DBManager.getManager().createEntityManager();

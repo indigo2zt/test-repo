@@ -20,11 +20,10 @@ import pl.lodz.p.spjava.entity.Pracownik;
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class PracownikEndpoint {
-
-    @Inject
+     @Inject
     private PracownikFacade pracownikFacade;
-
-    public void edit(Pracownik pracownik) {
+    
+    public void edit(Pracownik pracownik){
         pracownikFacade.edit(pracownik);
     }
 
@@ -41,6 +40,7 @@ public class PracownikEndpoint {
     }
 }
 
-// Add business logic below. (Right-click in editor and choose
-// "Insert Code > Add Business Method")
+
+    // Add business logic below. (Right-click in editor and choose
+    // "Insert Code > Add Business Method")
 
