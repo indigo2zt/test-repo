@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/szablonAplikacji.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h1>Edycja danych</h1>
+        <h:form rendered="#{KontoBean.uzytkownikZalogowany()}">
+
+            <h:panelGrid columns="1" cellpadding="2">
+                <p:outputLabel value="#{KontoBean.mojeKonto.id}" />
+
+                <p:outputLabel for="imie" value="Imie"/>
+                <p:inputText id="imie" value="#{KontoBean.mojeKonto.imie}" />
+
+                <p:outputLabel for="nazwisko" value="Nazwisko"/>
+                <p:inputText id="nazwisko" value="#{KontoBean.mojeKonto.nazwisko}" />
+
+                <p:outputLabel for="email" value="Email"/>
+                <p:inputText id="email" value="#{KontoBean.mojeKonto.email}" />
+
+
+
+                <p:commandButton value="Zapisz zmiany" action="#{KontoBean.zapiszZmiany()}"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+
+

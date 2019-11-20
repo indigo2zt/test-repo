@@ -5,7 +5,12 @@
  */
 package pl.lodz.p.spjava.entity;
 
+import pl.lodz.p.spjava.web.utils.DateConverter;
+
 import java.io.Serializable;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;

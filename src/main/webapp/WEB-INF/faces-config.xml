@@ -3,85 +3,279 @@
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-<!--    <navigation-rule>
-        <from-view-id>/dodajprzychodnie.xhtml</from-view-id>
+    <application>
+        <locale-config>
+            <default-locale>pl</default-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>pl.lodz.p.spjava.web.utils.Translator</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+
+    <navigation-rule>
         <navigation-case>
-            <from-outcome>Dodaj</from-outcome>
-            <to-view-id>/pokazprzychodnie.xhtml</to-view-id>
+            <from-outcome>Strona glowna</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
-    </navigation-rule>-->
+    </navigation-rule>
     <navigation-rule>
         <navigation-case>
             <from-outcome>ListaPrzychodni</from-outcome>
-            <to-view-id>/pokazprzychodnie.xhtml</to-view-id>
+            <to-view-id>/przychodnie/pokazprzychodnie.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Pokaz wizyty pacjent</from-outcome>
+            <to-view-id>/pacjent/listawizyt.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Pokaz wizyty pracownik</from-outcome>
+            <to-view-id>/pracownik/wizyta/pokazwizyty.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Dodaj konto</from-outcome>
+            <to-view-id>/administrator/dodajkonto.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Pokaz harmonogram</from-outcome>
+            <to-view-id>/lekarz/pokazharmonogram.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>
             <from-outcome>Dodaj</from-outcome>
-            <to-view-id>/dodajprzychodnie.xhtml</to-view-id>
+            <to-view-id>/przychodnie/dodajprzychodnie.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
-     <navigation-rule>
+    <navigation-rule>
         <navigation-case>
-           <from-outcome>Edytuj</from-outcome>
-            <to-view-id>/edytujprzychodnie.xhtml</to-view-id>
+            <from-outcome>Edytuj</from-outcome>
+            <to-view-id>/przychodnie/edytujprzychodnie.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>
             <from-outcome>Usuń</from-outcome>
-            <to-view-id>/usunprzychodnie.xhtml</to-view-id>
+            <to-view-id>/przychodnie/usunprzychodnie.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>
-           <from-outcome>Edytuj</from-outcome>
-            <to-view-id>/edytujprzychodnie.xhtml</to-view-id>
+            <from-outcome>Edytuj</from-outcome>
+            <to-view-id>/przychodnie/edytujprzychodnie.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>
             <from-outcome>Dodaj lekarza</from-outcome>
-            <to-view-id>/dodajlekarza.xhtml</to-view-id>
+            <to-view-id>/pracownik/dodajlekarza.dodawanielekarza.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
-     <navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Pokaz lekarzy</from-outcome>
+            <to-view-id>/pracownik/lekarz/pokazlekarzy.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Lista pacjentow</from-outcome>
+            <to-view-id>/pracownik/pacjent/pokazpacjentow.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
         <navigation-case>
             <from-outcome>Dodaj pacjenta</from-outcome>
-            <to-view-id>/dodajpacjenta.xhtml</to-view-id>
+            <to-view-id>/pracownik/pacjent/dodajpacjenta.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
-       <navigation-rule>
+    <navigation-rule>
         <navigation-case>
             <from-outcome>Dodaj wizyte</from-outcome>
-            <to-view-id>/dodajwizyte.xhtml</to-view-id>
+            <to-view-id>/pracownik/wizyta/dodajwizyte.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
-   
-   
-        <managed-bean>
-            <managed-bean-name->PrzychodniaBean</managed-bean-name->
-            <managed-bean-class>pl.lodz.p.spjava.controllers.PrzychodniaBean</managed-bean-class>
-   <managed-bean-scope>session</managed-bean-scope>
-            </managed-bean>
-            
-            <managed-bean>
-                <managed-bean-name>LekarzBean</managed-bean-name>
-                <managed-bean-class>pl.lodz.p.spjava.controllers.LekarzBean</managed-bean-class>
-                <managed-bean-scope>session</managed-bean-scope>
-            </managed-bean>
-            
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Edytuj lekarza</from-outcome>
+            <to-view-id>/pracownik/lekarz/edytujlekarza.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Edytuj wizyte</from-outcome>
+            <to-view-id>/pracownik/wizyta/edytujwizyte.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Edytuj pacjenta</from-outcome>
+            <to-view-id>/pracownik/pacjent/edytujpacjenta.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Rejestracja</from-outcome>
+            <to-view-id>/rejestracja.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Udana rejestracja</from-outcome>
+            <to-view-id>/udanarejestracja.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Logowanie</from-outcome>
+            <to-view-id>/logowanie.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Zmien haslo</from-outcome>
+            <to-view-id>/zmienhaslo.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Aktywacja konta</from-outcome>
+            <to-view-id>/aktywacjakonta.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Zarzadzanie kontami</from-outcome>
+            <to-view-id>/administrator/zarzadzaniekontami.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Edytuj konto</from-outcome>
+            <to-view-id>/administrator/edycjakonta.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Lista uprawnien</from-outcome>
+            <to-view-id>/administrator/listauprawnien.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Edytuj grupe</from-outcome>
+            <to-view-id>/administrator/edycjauprawnien.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Zarzadzanie pacjentami</from-outcome>
+            <to-view-id>/pracownik/pacjent/listapacjentow.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Umowic sie na wizyte</from-outcome>
+            <to-view-id>/pacjent/dodajwizyte.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Edytuj wizte pacjent</from-outcome>
+            <to-view-id>/pacjent/edytujwizyte.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Dodawanie uprawnien</from-outcome>
+            <to-view-id>/administrator/dodawanieuprawnien.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Wprowadzenie danych lekarza</from-outcome>
+            <to-view-id>/pracownik/lekarz/wprowadzaniedanychlekarza.dodawanielekarza.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>Panel użytkownika</from-outcome>
+            <to-view-id>/panel.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <managed-bean>
+        <managed-bean-name>PrzychodniaBean</managed-bean-name>
+        <managed-bean-class>pl.lodz.p.spjava.controllers.PrzychodniaBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>LekarzBean</managed-bean-name>
+        <managed-bean-class>pl.lodz.p.spjava.controllers.LekarzBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
     <converter>
         <converter-id>PrzychodniaConverter</converter-id>
         <converter-class>pl.lodz.p.spjava.config.PrzychodniaConverter</converter-class>
     </converter>
+
 </faces-config>

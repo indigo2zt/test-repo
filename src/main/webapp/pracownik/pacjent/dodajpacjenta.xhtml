@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../../WEB-INF/szablonAplikacji.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content"> 
+        <h1>Dodaj pacjenta</h1>
+        <h:form>
+            <h:panelGrid columns="1" cellpadding="3">
+                <h:outputLabel for="imie" value="Imie"/>
+                <p:inputText id="imie" value="#{PacjentBean.konto.imie}"/>
+
+                <h:outputLabel for="nazwisko" value="Nazwisko"/>
+                <p:inputText id="nazwisko" value="#{PacjentBean.konto.nazwisko}"/>
+
+                <h:outputLabel for="login" value="Login"/>
+                <p:inputText id="login" value="#{PacjentBean.konto.login}"/>
+
+                <h:outputLabel for="haslo" value="Hasło"/>
+                <p:inputText id="haslo" value="#{PacjentBean.konto.haslo}"/>
+
+                <h:outputLabel for="email" value="Email"/>
+                <p:inputText id="email" value="#{PacjentBean.konto.email}"/>
+
+                <h:outputLabel for="telefon" value="Telefon"/>
+                <p:inputText id="telefon" value="#{PacjentBean.konto.telefon}"/>
+
+                <h:outputLabel for="specjalizacja" value="Pesel"/>
+                <p:inputText id="specjalizacja" value="#{PacjentBean.pacjent.pesel}"/>
+
+                <h:outputLabel for="przychodnia" value="Przychodnia"/>
+                <p:selectOneMenu id="przychodnia" value="#{PacjentBean.selectedPrzychodnia}" required="true">
+                    <f:selectItems value="#{PrzychodniaBean.przychodnie}"
+                                   var="przychodnia"
+                                   itemValue="#{przychodnia.id}"
+                                   itemLabel="#{przychodnia.nazwa}" />
+                </p:selectOneMenu>
+                <p:commandButton action="#{PacjentBean.dodaj}"
+                                 value="Dodaj pacjenta"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

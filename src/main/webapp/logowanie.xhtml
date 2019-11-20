@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>login</title>
+</h:head>
+<h:body>
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{LoginBean.przekierowanieZalogowanego()}"/>
+    </f:metadata>
+    <h:form>
+        <h3>#{msg['loginMessage']}</h3>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="login" value="#{msg['login']}:"/>
+            <h:inputText id="login" value="#{LoginBean.login}" required="true" requiredMessage="Wprowadź swój login"/>
+
+            <h:outputLabel for="haslo" value="#{msg['password']}:"/>
+            <h:inputSecret id="haslo" value="#{LoginBean.haslo}" required="true" requiredMessage="Wprowadź swoje hasło"/>
+
+            <h:commandButton action="#{LoginBean.login}" value="#{msg['loginButton']}"/>
+        </h:panelGrid>
+    </h:form>
+
+    <br/><br/>
+    <h:link value="#{msg['newAccount']}" outcome="rejestracja" />
+    <br></br>
+    <h:link value="#{msg['sendPassword']}" outcome="rejestracja" />
+
+</h:body>
+</html>

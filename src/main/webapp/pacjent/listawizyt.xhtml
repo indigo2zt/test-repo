@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../WEB-INF/szablonAplikacji.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h1>Lista wizyt</h1>
+        <h:form>
+            <p:dataTable id="tabela" var="wizyta" value="#{WizytaBean.getListaMoichWizyt()}" resizableColumns="false"
+                         style="margin-bottom:5px"
+                         selectionMode="single" selection="#{WizytaBean.wizyta}"
+                         rowKey="#{wizyta.wizytaPK.lekarz}">
+                <p:column headerText="Lekarz">
+                    <h:outputText value="#{LekarzBean.getFormattedImieNazwisko(LekarzBean.getLekarzById(wizyta.wizytaPK.lekarz))}"/>
+                </p:column>
+
+                <p:column headerText="Pacjent">
+                    <h:outputText value="#{PacjentBean.getFormattedImieNazwisko(PacjentBean.getPacjentById(wizyta.wizytaPK.pacjent))}"/>
+                </p:column>
+
+                <p:column headerText="Data">
+                    <h:outputText value="#{wizyta.wizytaPK.data}">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm"/>
+                    </h:outputText>
+                </p:column>
+
+                <p:column headerText="Pokój">
+                    <h:outputText value="#{wizyta.pokoj}"/>
+                </p:column>
+
+            </p:dataTable>
+            <p:commandButton value="Usuń" action="#{WizytaBean.usun}" actionListener="#{WizytaBean.usun}"
+                             update="tabela"/>
+            <p:commandButton value="Edytuj" action="#{WizytaBean.edytujPacjent}"/>
+            <p:commandButton value="Dodaj" action="Umowic sie na wizyte"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+
+

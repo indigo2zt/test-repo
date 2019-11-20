@@ -12,6 +12,7 @@ import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import pl.lodz.p.spjava.entity.Konto;
+import pl.lodz.p.spjava.exception.DbException;
 
 /**
  *
@@ -33,12 +34,20 @@ public class KontoFacade extends AbstractFacade<Konto> {
         super(Konto.class);
     }
 
-    public Konto znajdzLogin(String login) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Konto znajdzLogin(String login) throws DbException.BadExecution {
+        try{
+            return getEntityManager().createNamedQuery("Konto.findByLogin", Konto.class).setParameter("login", login).getSingleResult();
+        }catch (Exception e){
+            throw new DbException.BadExecution(String.format("Nie udało się znaleź konto z loginem: %s", login));
+        }
+
     }
 
     public List<Konto> dopasujKonta(String loginWzor, String imieWzor, String nazwiskoWzor, String emailWzor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    public Konto findByKod(String kod) {
+        return getEntityManager().createNamedQuery("Konto.findByKod", Konto.class).setParameter("kod", kod).getSingleResult();
+    }
 }

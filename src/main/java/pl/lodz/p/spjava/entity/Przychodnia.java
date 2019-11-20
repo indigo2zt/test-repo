@@ -36,7 +36,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Przychodnia.findByNazwa", query = "SELECT p FROM Przychodnia p WHERE p.nazwa = :nazwa")
     , @NamedQuery(name = "Przychodnia.findByOpis", query = "SELECT p FROM Przychodnia p WHERE p.opis = :opis")
     , @NamedQuery(name = "Przychodnia.findByAdres", query = "SELECT p FROM Przychodnia p WHERE p.adres = :adres")
-    , @NamedQuery(name = "Przychodnia.findByKontakt", query = "SELECT p FROM Przychodnia p WHERE p.kontakt = :kontakt")})
+    , @NamedQuery(name = "Przychodnia.findByKontakt", query = "SELECT p FROM Przychodnia p WHERE p.kontakt = :kontakt")
+    , @NamedQuery(name = "Przychodnia.findByLekarz", query = "SELECT p FROM Przychodnia p JOIN Lekarz l WHERE l.id = :lekarzId AND p.id = l.przychodnia.id")})
 public class Przychodnia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -63,13 +64,13 @@ public class Przychodnia implements Serializable {
     @Size(max = 30)
     @Column(name = "KONTAKT")
     private String kontakt;
-    
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Pacjent> pacjentSet;
-    
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Lekarz> lekarzList;
-    
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "przychodnia", fetch = FetchType.EAGER)
     private Set<Pacjent> pacjentList;
 
@@ -139,7 +140,7 @@ public class Przychodnia implements Serializable {
     public Set<Lekarz> getLekarzList() {
         return lekarzList;
     }
-    
+
     @XmlTransient
     public Set<Pacjent> getPacjentList() {
         return pacjentList;

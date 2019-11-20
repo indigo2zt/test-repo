@@ -28,6 +28,11 @@ public class Pracownik extends Konto implements Serializable {
     @Column(name = "intercom", unique=true, nullable=false, length=12)
     private String intercom;
 
+    @JoinColumn(name = "Konto_id", nullable = false)
+    @OneToOne(optional = false, fetch = FetchType.EAGER)
+    private Konto konto;
+
+
     public Pracownik() {
     }
 
@@ -37,6 +42,14 @@ public class Pracownik extends Konto implements Serializable {
 
     public void setIntercom(String intercom) {
         this.intercom = intercom;
+    }
+
+    public Konto getKonto() {
+        return konto;
+    }
+
+    public void setKonto(Konto konto) {
+        this.konto = konto;
     }
 }
 

@@ -7,20 +7,7 @@ package pl.lodz.p.spjava.entity;
 
 import java.io.Serializable;
 import java.util.Set;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -63,6 +50,10 @@ public class Lekarz implements Serializable {
     private Przychodnia przychodnia;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lekarz1", fetch = FetchType.EAGER)
     private Set<Wizyta> wizytaList;
+
+    @JoinColumn(name = "konto_id", nullable = false)
+    @OneToOne(optional = false, fetch = FetchType.EAGER)
+    private Konto konto;
 
     public Lekarz() {
     }
@@ -125,6 +116,14 @@ public class Lekarz implements Serializable {
 
     public void setWizytaSet(Set<Wizyta> wizytaList) {
         this.wizytaList = wizytaList;
+    }
+
+    public Konto getKonto() {
+        return konto;
+    }
+
+    public void setKonto(Konto konto) {
+        this.konto = konto;
     }
 
     @Override

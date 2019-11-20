@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/szablonAplikacji.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h1>Lista kont</h1>
+        <h:form>
+            <p:dataTable id="tabela" var="konto" value="#{PracownikBean.konta}" resizableColumns="false"
+                         style="margin-bottom:5px"
+                         selectionMode="single" selection="#{PracownikBean.wybranyUzytkownik}"
+                         rowKey="#{konto.id}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{konto.id}"/>
+                </p:column>
+
+                <p:column headerText="Login">
+                    <h:outputText value="#{konto.login}"/>
+                </p:column>
+
+                <p:column headerText="Email">
+                    <h:outputText value="#{konto.email}"/>
+                </p:column>
+
+                <p:column headerText="Potwierdzone">
+                    <h:outputText value="#{konto.potwierdzone}"/>
+                </p:column>
+
+                <p:column headerText="Imie">
+                    <h:outputText value="#{konto.imie}"/>
+                </p:column>
+
+                <p:column headerText="Nazwisko">
+                    <h:outputText value="#{konto.nazwisko}"/>
+                </p:column>
+
+                <p:column headerText="Telefon">
+                    <h:outputText value="#{konto.telefon}"/>
+                </p:column>
+
+                <p:column headerText="Uprawnienia">
+                    <h:outputText value="#{AdministratorBean.znajdzUprawnienia(konto.login)}"/>
+                </p:column>
+
+            </p:dataTable>
+            <p:commandButton value="Usuń" action="#{PrzychodniaBean.usun}" actionListener="#{PrzychodniaBean.usun}"
+                             update="tabela"/>
+            <p:commandButton value="Edytuj" action="#{AdministratorBean.edytujKonto}"/>
+            <p:commandButton value="Dodaj" action="Dodaj"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+
+

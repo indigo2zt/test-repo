@@ -11,8 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import p.lodz.p.spjava.endpoints.PrzychodniaEndpoint;
-import pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade;
+import pl.lodz.p.spjava.endpoints.PrzychodniaEndpoint;
 import pl.lodz.p.spjava.entity.Przychodnia;
 
 /**
@@ -27,6 +26,11 @@ public class PrzychodniaEditBean implements Serializable {
 
     @Inject
     private PrzychodniaEndpoint przychodniaEndpoint;
+
+    @PostConstruct
+    public void init() {
+        przychodnia = (Przychodnia) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("selectPrzychodnia");
+    }
     
     public Przychodnia getPrzychodnia() {
         return przychodnia;
@@ -34,11 +38,6 @@ public class PrzychodniaEditBean implements Serializable {
 
     public void setPrzychodnia(Przychodnia przychodnia) {
         this.przychodnia = przychodnia;
-    }
-
-    @PostConstruct
-    public void init() {
-        przychodnia = (Przychodnia) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("selectPrzychodnia");
     }
 
     public String edytujPrzychodnie(){

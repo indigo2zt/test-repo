@@ -11,6 +11,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import pl.lodz.p.spjava.entity.Przychodnia;
 
@@ -32,5 +33,9 @@ public class PrzychodniaFacade extends AbstractFacade<Przychodnia> {
 
     public PrzychodniaFacade() {
         super(Przychodnia.class);
+    }
+
+    public int findByLekarz(int lekarz){
+        return getEntityManager().createNamedQuery("Przychodnia.findByLekarz", Przychodnia.class).setParameter("lekarzId", lekarz).getSingleResult().getId();
     }
 }

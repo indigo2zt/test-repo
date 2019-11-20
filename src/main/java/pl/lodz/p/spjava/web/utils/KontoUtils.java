@@ -5,6 +5,10 @@ import pl.lodz.p.spjava.entity.Administrator;
 import pl.lodz.p.spjava.entity.Konto;
 import pl.lodz.p.spjava.entity.Pracownik;
 
+import javax.xml.bind.DatatypeConverter;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 
 public class KontoUtils {
@@ -68,8 +72,17 @@ public class KontoUtils {
         return hasloJawne;
     }
 
+    public static String kodojWSha256(String haslo) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        md.update(haslo.getBytes("UTF-8"));
+        byte[] digest = md.digest();
+        return DatatypeConverter.printBase64Binary(digest).toString();
+    }
+
     public static boolean isPacjent(Konto konto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+
 
 }

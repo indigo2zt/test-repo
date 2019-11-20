@@ -11,6 +11,8 @@ package pl.lodz.p.spjava.entity;
  */
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -23,9 +25,15 @@ import javax.validation.constraints.Size;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "typ")
 @DiscriminatorValue("KONTO")
+@NamedQueries({
+        @NamedQuery(name = "Konto.findByLogin", query = "SELECT k FROM Konto k where k.login = :login"),
+        @NamedQuery(name = "Konto.findByKod", query = "SELECT k FROM Konto k where k.kodaktywacji = :kod")
+})
+
 public class Konto implements Serializable {
 
     public Konto() {
+
     }
 
     protected Object getBusinessKey() {
@@ -47,6 +55,10 @@ public class Konto implements Serializable {
     
     @Column(name = "aktywne", nullable = false)
     private boolean aktywne;
+
+    @Column(name = "kodaktywacji", nullable = true)
+    private String kodaktywacji;
+
     @Column(name="typ",updatable=false)
     private String typ;
     @NotNull(message="{constraint.notnull}")
@@ -67,6 +79,19 @@ public class Konto implements Serializable {
     @Size(max=12,message="{constraint.string.length.toolong}")
     @Column(name = "telefon", table = "DanePersonalne", length = 12, unique = true, nullable = true)
     private String telefon;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "login", fetch = FetchType.EAGER)
+    private Set<Grupa> grupy;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "konto", fetch = FetchType.EAGER)
+    private Pacjent pacjent;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "konto", fetch = FetchType.EAGER)
+    private Lekarz lekarz;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "konto", fetch = FetchType.EAGER)
+    private Pracownik pracownik;
+
 
     public String getEmail() {
         return email;
@@ -139,4 +164,37 @@ public class Konto implements Serializable {
     public String getTyp() {
         return typ;
     }
+
+    public String getKodaktywacji() {
+        return kodaktywacji;
+    }
+
+    public void setKodaktywacji(String kodaktywacji) {
+        this.kodaktywacji = kodaktywacji;
+    }
+
+    public Set<Grupa> getGrupy() {
+        return grupy;
+    }
+
+    public void setGrupy(Set<Grupa> grupy) {
+        this.grupy = grupy;
+    }
+
+    public Pacjent getPacjent() {
+        return pacjent;
+    }
+
+    public void setPacjent(Pacjent pacjent) {
+        this.pacjent = pacjent;
+    }
+
+    public Lekarz getLekarz() {
+        return lekarz;
+    }
+
+    public void setLekarz(Lekarz lekarz) {
+        this.lekarz = lekarz;
+    }
+
 }

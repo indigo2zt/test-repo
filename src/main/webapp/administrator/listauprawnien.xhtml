@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/szablonAplikacji.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h1>Lista uprawnien</h1>
+        <h:form>
+            <p:dataTable id="tabela" var="grupa" value="#{AdministratorBean.uprawnienia}" resizableColumns="false"
+                         style="margin-bottom:5px"
+                         selectionMode="single" selection="#{AdministratorBean.selectedGrupa}"
+                         rowKey="#{grupa.id}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{grupa.id}"/>
+                </p:column>
+
+                <p:column headerText="Login">
+                    <h:outputText value="#{grupa.login.login}"/>
+                </p:column>
+
+                <p:column headerText="Email">
+                    <h:outputText value="#{grupa.login.imie}"/>
+                </p:column>
+
+                <p:column headerText="Potwierdzone">
+                    <h:outputText value="#{grupa.login.nazwisko}"/>
+                </p:column>
+
+                <p:column headerText="Imie">
+                    <h:outputText value="#{grupa.login.email}"/>
+                </p:column>
+
+                <p:column headerText="Grupa">
+                    <h:outputText value="#{grupa.nazwagrupy}"/>
+                </p:column>
+
+            </p:dataTable>
+            <p:commandButton value="Usuń" action="#{AdministratorBean.usunGrupe}" actionListener="#{AdministratorBean.usunGrupe}"
+                             update="tabela"/>
+            <p:commandButton value="Edytuj" action="#{AdministratorBean.edytujGrupe}"/>
+            <p:commandButton value="Dodaj" action="Dodawanie uprawnien"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+
+

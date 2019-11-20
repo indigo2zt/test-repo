@@ -9,13 +9,21 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
 import pl.lodz.p.spjava.ejb.facade.PacjentFacade;
 import pl.lodz.p.spjava.ejb.facade.PrzychodniaFacade;
+import pl.lodz.p.spjava.endpoints.GrupaEndpoint;
+import pl.lodz.p.spjava.endpoints.KontoEndpoint;
+import pl.lodz.p.spjava.endpoints.PacjentEndpoint;
+import pl.lodz.p.spjava.endpoints.PrzychodniaEndpoint;
+import pl.lodz.p.spjava.entity.Grupa;
+import pl.lodz.p.spjava.entity.Konto;
 import pl.lodz.p.spjava.entity.Pacjent;
 import pl.lodz.p.spjava.entity.Przychodnia;
+import pl.lodz.p.spjava.exception.DbException;
+import pl.lodz.p.spjava.web.utils.EmailUtils;
 
 /**
- *
  * @author java
  */
 @ViewScoped
@@ -23,18 +31,35 @@ import pl.lodz.p.spjava.entity.Przychodnia;
 
 public class PacjentBean implements Serializable {
 
+    @Inject
+    private PacjentEndpoint pacjentEndpoint;//tego nie powinno byc
+
+    @Inject
+    private PrzychodniaEndpoint przychodniaEndpoint;//powinienn byc endpoint
+
+    @Inject
+    private GrupaEndpoint grupaEndpoint;
+
+    @Inject
+    private KontoEndpoint kontoEndpoint;
+
     private Pacjent pacjent = new Pacjent();
-   
-    @Inject
-    private PacjentFacade pacjentFacade;//tego nie powinno byc
-
-    @Inject
-    private PrzychodniaFacade przychodniaFacade;//powinienn byc endpoint
-//    private PrzychodniaEndpoint przychodniaEndpoint;
-
     private List<Pacjent> pacjenci = new ArrayList<>();
-
     private List<Przychodnia> przychodnie = new ArrayList<>();
+    private Integer selectedPrzychodnia;
+    private Pacjent selectPacjent;
+    private Konto konto = new Konto();
+
+    @Inject
+    private EmailUtils emailUtils ;
+
+    @PostConstruct
+    public void init() {
+        pacjenci = pacjentEndpoint.findAll();
+        przychodnie.addAll(przychodniaEndpoint.findAll());//uzyc endpointa
+        selectedPrzychodnia = 0;
+
+    }
 
     public List<Przychodnia> getPrzychodnie() {
         return przychodnie;
@@ -44,8 +69,6 @@ public class PacjentBean implements Serializable {
         this.przychodnie = przychodnie;
     }
 
-    private Integer selectedPrzychodnia;
-
     public Integer getSelectedPrzychodnia() {
         return selectedPrzychodnia;
     }
@@ -54,68 +77,27 @@ public class PacjentBean implements Serializable {
         this.selectedPrzychodnia = selectedPrzychodnia;
     }
 
-    public PacjentBean() {
-    }
-
     public Pacjent getPacjent() {
         return pacjent;
     }
+
+    public Pacjent getPacjentById(int id) {
+        return pacjentEndpoint.findById(id);
+    }
+
+    public List<Pacjent> getPacjenci() {
+        return pacjentEndpoint.findAll();
+    }
+
+    public String getFormattedImieNazwisko(Pacjent pacjent){
+        return String.format("%s %s", pacjent.getKonto().getImie(), pacjent.getKonto().getNazwisko());
+    }
+
 
     public void setPacjent(Pacjent pacjent) {
         this.pacjent = pacjent;
     }
 
-    public String dodaj() {
-        //wyszukac przychodnie o id selectedPrzychodnia
-        Przychodnia przychodnia = przychodniaFacade.find(selectedPrzychodnia);
-        pacjent.setPrzychodnia(przychodnia);
-        pacjentFacade.create(pacjent);
-        return "Dodaj";
-    }
-//    public String dodaj() {
-//        EntityManager em = (EntityManager) DBManager.getManager().createEntityManagerFactory();
-//                em.getTransaction().begin();
-//                lekarz.setId(null);
-//                em.persist(lekarz);
-//                em.getTransaction().commit();
-//                em.close();
-//                
-
-    public void dodajInformacje(String s) {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, s, ""));
-
-    }
-
-    @PostConstruct
-    public void init() {
-        pacjenci = pacjentFacade.findAll();
-        przychodnie.addAll(przychodniaFacade.findAll());//uzyc endpointa
-        selectedPrzychodnia = 0;
-
-    }
-
-    public List<Pacjent> getPacjenci() {
-        return pacjenci;
-    }
-
-    private Pacjent selectPacjent;
-
-    public String edytuj() {
-        if (selectPacjent != null) {
-            FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectPacjent", selectPacjent);
-            return "EDYTUJ";
-        }
-
-        return "";
-
-    }
-
-    //public String usun() {
-    public List<Pacjent> usun() {
-        this.pacjentFacade.remove(selectPacjent);
-        return pacjenci;
-
-    }
 
     public Pacjent getSelectPacjent() {
         return selectPacjent;
@@ -125,5 +107,49 @@ public class PacjentBean implements Serializable {
         this.selectPacjent = selectPacjent;
     }
 
+    public String dodaj() {
+        //wyszukac przychodnie o id selectedPrzychodnia
+        Przychodnia przychodnia = przychodniaEndpoint.findById(selectedPrzychodnia);
+        pacjent.setPrzychodnia(przychodnia);
+        pacjent.setKonto(konto);
+        konto.setPotwierdzone(true);
+        konto.setAktywne(true);
+        kontoEndpoint.utworzKonto(konto);
+        pacjent.setImie(konto.getImie());
+        pacjent.setNazwisko(konto.getNazwisko());
+        pacjentEndpoint.create(pacjent);
+        Grupa grupa = new Grupa();
+        grupa.setLogin(konto);
+        grupa.setNazwagrupy("Pacjent");
+        grupaEndpoint.dodajUzytkownika(grupa);
+
+        return "Lista pacjentow";
+    }
+
+    public String edytuj() {
+        if (selectPacjent != null) {
+            FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectPacjent", selectPacjent);
+            return "Edytuj pacjenta";
+        }
+        return "";
+    }
+
+    public void dodajInformacje(String s) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, s, ""));
+
+    }
+
+    public List<Pacjent> usun() {
+        this.pacjentEndpoint.remove(selectPacjent);
+        return pacjenci;
+    }
+
+    public Konto getKonto() {
+        return konto;
+    }
+
+    public void setKonto(Konto konto) {
+        this.konto = konto;
+    }
 }
 

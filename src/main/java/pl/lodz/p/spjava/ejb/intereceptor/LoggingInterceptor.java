@@ -5,28 +5,29 @@
  */
 package pl.lodz.p.spjava.ejb.intereceptor;
 
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 /**
  *
  * @author java
  */
-public class LoggingInterceptor {
+public class LoggingInterceptor implements Serializable {
 
-    @Resource
-    private SessionContext sessionContext;
 
     @AroundInvoke
     public Object additionalInvokeForMethod(InvocationContext invocation) throws Exception {
         StringBuilder sb = new StringBuilder("Wywołanie metody biznesowej ")
                 .append(invocation.getTarget().getClass().getName()).append('.')
                 .append(invocation.getMethod().getName());
-        sb.append(" z tożsamością: ").append(sessionContext.getCallerPrincipal().getName());
+        //sb.append(" z tożsamością: ").append(sessionContext.getCallerPrincipal().getName());
         try {
             Object[] parameters = invocation.getParameters();
             if (null != parameters) {

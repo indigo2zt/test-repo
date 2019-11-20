@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../WEB-INF/szablonAplikacji.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h1>Lista przychodni</h1>
+        <h:form>
+            <p:dataTable id="tabela" var="przychodnia" value="#{PrzychodniaBean.przychodnie}" resizableColumns="false"
+                         style="margin-bottom:5px"
+                         selectionMode="single" selection="#{PrzychodniaBean.selectPrzychodnia}"
+                         rowKey="#{przychodnia.id}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{przychodnia.id}"/>
+                </p:column>
+
+                <p:column headerText="Nazwa">
+                    <h:outputText value="#{przychodnia.nazwa}"/>
+                </p:column>
+
+                <p:column headerText="Adres">
+                    <h:outputText value="#{przychodnia.adres}"/>
+                </p:column>
+
+                <p:column headerText="Kontakt">
+                    <h:outputText value="#{przychodnia.kontakt}"/>
+                </p:column>
+
+                <p:column headerText="Opis">
+                    <h:outputText value="#{przychodnia.opis}"/>
+                </p:column>
+
+            </p:dataTable>
+            <p:commandButton value="Usuń" action="#{PrzychodniaBean.usun}" actionListener="#{PrzychodniaBean.usun}"
+                             update="tabela"/>
+            <p:commandButton value="Edytuj" action="#{PrzychodniaBean.edytuj}"/>
+            <p:commandButton value="Dodaj" action="Dodaj"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+
+

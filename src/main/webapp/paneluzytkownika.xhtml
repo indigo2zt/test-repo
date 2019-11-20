@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>login</title>
+</h:head>
+<h:body>
+
+    <h:panelGroup layout="block" rendered="#{AktywacjaKontaBean.zaakceptowane}">
+        <p>Aktywacja konta się udała!</p>
+        <p><h:link outcome="index">Strona głowna</h:link></p>
+    </h:panelGroup>
+    <h:panelGroup layout="block" rendered="#{!AktywacjaKontaBean.zaakceptowane}">
+        <p>Aktywacja konta się nie udała.</p>
+        <h:form>
+        </h:form>
+    </h:panelGroup>
+
+</h:body>
+</html>

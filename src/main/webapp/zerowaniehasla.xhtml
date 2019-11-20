@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>Zerowanie hasla</title>
+</h:head>
+<h:body>
+
+    <h:form>
+        <h3>Zerowanie hasla</h3>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="stareHaslo">Stare hasło:</h:outputLabel>
+            <h:inputText id="stareHaslo" value="#{LoginBean.haslo}" required="true" requiredMessage="Wprowadź swoje haslo"/>
+
+            <h:outputLabel for="noweHaslo">Nowe hasło:</h:outputLabel>
+            <h:inputSecret id="noweHaslo" value="#{LoginBean.noweHaslo}" required="true" requiredMessage="Wprowadź nower hasło"/>
+
+            <h:commandButton action="#{KontoBean.zmienHaslo}" value="Login"/>
+        </h:panelGrid>
+    </h:form>
+
+    <br/><br/>
+
+</h:body>
+</html>

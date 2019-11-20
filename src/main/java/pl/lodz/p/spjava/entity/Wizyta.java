@@ -6,6 +6,7 @@
 package pl.lodz.p.spjava.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -36,6 +37,7 @@ import javax.persistence.UniqueConstraint;
     , @NamedQuery(name = "Wizyta.findByLekarz", query = "SELECT w FROM Wizyta w WHERE w.wizytaPK.lekarz = :lekarz")
     , @NamedQuery(name = "Wizyta.findByPacjent", query = "SELECT w FROM Wizyta w WHERE w.wizytaPK.pacjent = :pacjent")
     , @NamedQuery(name = "Wizyta.findByData", query = "SELECT w FROM Wizyta w WHERE w.wizytaPK.data = :data")
+    , @NamedQuery(name = "Wizyta.findAllByRange", query = "SELECT w FROM Wizyta w WHERE w.wizytaPK.data >= :pierwszaData AND w.wizytaPK.data <= :drugaData")
     , @NamedQuery(name = "Wizyta.findByPokoj", query = "SELECT w FROM Wizyta w WHERE w.pokoj = :pokoj")})
 public class Wizyta implements Serializable {
 

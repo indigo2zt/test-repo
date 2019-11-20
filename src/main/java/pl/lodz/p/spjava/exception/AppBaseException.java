@@ -12,18 +12,18 @@ package pl.lodz.p.spjava.exception;
 
 import javax.ejb.ApplicationException;
 
-/**
- * Klasa bazowego wyjątku aplikacyjnego
- */
+
 @ApplicationException(rollback=true)
-abstract public class AppBaseException extends Exception {
+public abstract class AppBaseException extends Exception {
+
+    private String message;
     
-    protected AppBaseException(String message, Throwable cause) {
-        super(message, cause);
+    public AppBaseException(String message){
+        this.message = message;
     }
 
-    protected AppBaseException(String message) {
-        super(message);
+    public String getMessage(){
+        return message;
     }
     
 }

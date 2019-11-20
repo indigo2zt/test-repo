@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../../WEB-INF/szablonAplikacji.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h1>Edytuj lekarza</h1>
+        <h:form>
+            <h:panelGrid columns="1" cellpadding="3">
+                <h:outputLabel for="specjalizacja" value="Specjalizacja"/>
+                <p:inputText id="specjalizacja" value="#{LekarzEditBean.lekarz.specjalizacja}"/>
+
+                <h:outputLabel for="przychodnia" value="Przychodnia"/>
+                <p:selectOneMenu id="przychodnia" value="#{LekarzEditBean.selectedPrzychodnia}" required="true">
+                    <f:selectItems value="#{LekarzBean.przychodnie}"
+                                   var="przychodnia"
+                                   itemValue="#{przychodnia.id}"
+                                   itemLabel="#{przychodnia.nazwa}"/>
+                </p:selectOneMenu>
+
+                <h:outputLabel for="login" value="Login"/>
+                <p:inputText id="login" value="#{LekarzEditBean.lekarz.konto.login}"/>
+
+                <h:outputLabel for="haslo" value="Haslo"/>
+                <p:inputText id="haslo" value="#{LekarzEditBean.lekarz.konto.haslo}"/>
+
+                <h:outputLabel for="imie" value="Imie"/>
+                <p:inputText id="imie" value="#{LekarzEditBean.lekarz.konto.imie}"/>
+
+                <h:outputLabel for="nazwisko" value="Nazwisko"/>
+                <p:inputText id="nazwisko" value="#{LekarzEditBean.lekarz.konto.nazwisko}"/>
+
+                <h:outputLabel for="email" value="Email"/>
+                <p:inputText id="email" value="#{LekarzEditBean.lekarz.konto.email}"/>
+
+                <h:outputLabel for="telefon" value="Telefon"/>
+                <p:inputText id="telefon" value="#{LekarzEditBean.lekarz.konto.telefon}"/>
+
+                <p:commandButton value="Zapisz" action="#{LekarzEditBean.saveLekarz}"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

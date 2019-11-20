@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../WEB-INF/szablonAplikacji.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h1>Lista lekarzy</h1>
+        <h:form>
+            <p:dataTable id="lekarzy" var="lekarz" value="#{LekarzBean.lekarze}" resizableColumns="true" style="margin-bottom:20px"
+                         selectionMode="single" selection="#{LekarzBean.selectLekarz}" rowKey="#{lekarz.id}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{lekarz.id}"/>
+                </p:column>
+
+                <p:column headerText="Imie">
+                    <h:outputText value="#{lekarz.imie}"/>
+                </p:column>
+
+                <p:column headerText="Nazwisko">
+                    <h:outputText value="#{lekarz.nazwisko}"/>
+                </p:column>
+
+                <p:column headerText="Specjalizacja">
+                    <h:outputText value="#{lekarz.specjalizacja}"/>
+                </p:column>
+
+                <p:column headerText="Akcje">
+                    <p:commandButton value="EDYTUJ" action="#{LekarzBean.edytuj}"/>
+                    <f:attribute name="selectLekarz" value="#{LekarzBean.lekarze}"/>
+                    <p:commandButton value="USUŃ" action="#{LekarzBean.usun}" actionListener="#{LekarzBean.usun}" update="lekarzy"/>
+                    <f:attribute name="selectLekarz" value="#{LekarzBean.lekarze}"/>
+
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

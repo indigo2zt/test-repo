@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/szablonAplikacji.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h1>Zmień wizyte</h1>
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="1">
+
+                <p:outputLabel for="lekarz" value="Wybierz lekarza:"/>
+                <p:selectOneMenu id="lekarz" value="#{WizytaEditBean.wizyta.wizytaPK.lekarz}" required="true">
+                    <f:selectItem itemLabel="Lekarz" itemValue="" noSelectionOption="true"/>
+                    <f:selectItems value="#{LekarzBean.getLekarze()}"
+                                   var="lekarz" itemValue="#{lekarz.id}"
+                                   itemLabel="#{lekarz.konto.imie} #{lekarz.konto.nazwisko}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Wpisz date i czas (w formacie RRRR-MM-DD GG:MM:SS):"/>
+                <p:datePicker id="date" value="#{WizytaEditBean.data}" inline="true" required="true" pattern="dd.MM.yyyy">
+                    <p:ajax event="dateSelect" listener="#{WizytaEditBean.generateListaDat()}" update="dataWizyty"/>
+                    <f:convertDateTime pattern="dd.MM.yyyy" />
+                </p:datePicker>
+
+                <p:outputLabel value="Wybierz dostępny termin"/>
+                <p:selectOneMenu id="dataWizyty" value="#{WizytaEditBean.wybranaData}">
+
+                    <f:selectItems value="#{WizytaEditBean.listaDat}"
+                                   var="data" itemValue="#{WizytaBean.konwertowacDate(data)}"
+                                   itemLabel="#{WizytaBean.konwertowacWFormatGodzinaMinuta(data)}"/>
+                </p:selectOneMenu>
+
+
+                <p:commandButton action="#{WizytaEditBean.saveWizytaPacjent}"
+                                 value="Zapisz"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>

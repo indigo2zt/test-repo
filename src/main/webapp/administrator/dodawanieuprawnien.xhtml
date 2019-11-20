@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/szablonAplikacji.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h1>Dodaj grupe</h1>
+        <h:form>
+            <h:panelGrid columns="1" cellpadding="3">
+                <h:outputLabel for="login" value="login"/>
+                <p:inputText id="login" value="#{AdministratorBean.login}"/>
+
+                <p:selectOneMenu id="grupa" value="#{AdministratorBean.nazwagrupy}" required="true">
+                    <f:selectItems value="#{AdministratorBean.grupy}"
+                                   var="grupa"
+                                   itemValue="#{grupa}"
+                                   itemLabel="#{grupa}"/>
+                </p:selectOneMenu>
+                <p:commandButton action="#{AdministratorBean.dodajGrupe}"
+                                 value="Dodaj grupe"/>
+            </h:panelGrid>
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+

@@ -7,21 +7,7 @@ package pl.lodz.p.spjava.entity;
 
 import java.io.Serializable;
 import java.util.Set;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -39,7 +25,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Pacjent.findById", query = "SELECT p FROM Pacjent p WHERE p.id = :id")
     , @NamedQuery(name = "Pacjent.findByImie", query = "SELECT p FROM Pacjent p WHERE p.imie = :imie")
     , @NamedQuery(name = "Pacjent.findByNazwisko", query = "SELECT p FROM Pacjent p WHERE p.nazwisko = :nazwisko")
-    , @NamedQuery(name = "Pacjent.findByPesel", query = "SELECT p FROM Pacjent p WHERE p.pesel = :pesel")})
+    , @NamedQuery(name = "Pacjent.findByPesel", query = "SELECT p FROM Pacjent p WHERE p.pesel = :pesel")
+    , @NamedQuery(name = "Pacjent.findByLogin", query = "SELECT p FROM Pacjent p WHERE p.konto.login = :login")
+    , @NamedQuery(name = "Pacjent.findByKonto", query = "SELECT p FROM Pacjent p WHERE p.konto = :konto")
+    , @NamedQuery(name = "Pacjent.findByPrzychodnia", query = "SELECT p FROM Pacjent p JOIN Przychodnia prz Where prz.id = :przychodniaId and p.przychodnia.id = prz.id")})
 public class Pacjent implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -65,6 +54,11 @@ public class Pacjent implements Serializable {
     private Przychodnia przychodnia;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pacjent1", fetch = FetchType.EAGER)
     private Set<Wizyta> wizytaSet;
+
+    @JoinColumn(name = "Konto_id", nullable = false)
+    @OneToOne(optional = false, fetch = FetchType.EAGER)
+    private Konto konto;
+
 
     public Pacjent() {
     }
@@ -169,5 +163,12 @@ public class Pacjent implements Serializable {
     public void setHaslo(String wyliczSkrotHasla) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    public Konto getKonto() {
+        return konto;
+    }
+
+    public void setKonto(Konto konto) {
+        this.konto = konto;
+    }
 }
